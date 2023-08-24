@@ -16,10 +16,11 @@ library("pdftools")
 
 OK
 
-```{r}
+```{r dosomef,cache=TRUE}
 f <- function(a,b){
   if(a==0){return(0)}
   if(b==0){return(1)}
+  if(a==b){return(1/2)}
   p <- a/(a+b)
   return(p*f(a,b-1) + (1-p)*f(a-1,b))
 }
@@ -29,15 +30,17 @@ f(4,2) - 331/360
 f(4,3) - 233/315
 f(6,6)
 f(6,7)
+f(10,11)
 ```
 
 
 
 ```{tikz, fig.cap = "Partial probability tree for five competitors $a-e$ with $a$ supporting $b$, hyper3 approach", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
 \newcommand{\arrowIn}{
-\tikz \draw[-stealth] (-1pt,0) -- (1pt,0);
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
 }
 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
@@ -68,47 +71,47 @@ f(6,7)
 
 % horizontal lines first:
 
-%\draw[line width=0.3mm] (1,0) -- (0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-%\draw[line width=0.3mm] (2,0) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-%\draw[line width=0.3mm] (3,0) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-%\draw[line width=0.3mm] (4,0) -- (3,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (1,0) -- (0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (2,0) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (3,0) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (4,0) -- (3,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (1,1) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (2,1) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (3,1) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (4,1) -- (3,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,1) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,1) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,1) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,1) -- (3,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (1,2) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (2,2) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (3,2) -- (2,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (4,2) -- (3,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,2) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,2) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,2) -- (2,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,2) -- (3,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (1,3) -- (0,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (2,3) -- (1,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (3,3) -- (2,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (4,3) -- (3,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,3) -- (0,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,3) -- (1,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,3) -- (2,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,3) -- (3,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
 
 % Now vertical lines:
-%\draw[line width=0.3mm] (0,1) -- (0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-%\draw[line width=0.3mm] (0,2) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-%\draw[line width=0.3mm] (0,3) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (0,1) -- (0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (0,2) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+%\draw[line width=0.5mm] (0,3) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (1,1) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (1,2) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (1,3) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,1) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,2) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (1,3) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (2,1) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (2,2) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (2,3) -- (2,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,1) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,2) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (2,3) -- (2,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (3,1) -- (3,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (3,2) -- (3,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (3,3) -- (3,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,1) -- (3,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,2) -- (3,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (3,3) -- (3,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\draw[line width=0.3mm] (4,1) -- (4,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (4,2) -- (4,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
-\draw[line width=0.3mm] (4,3) -- (4,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,1) -- (4,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,2) -- (4,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (4,3) -- (4,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
 
 %\node at (0.2, 0.1)  {$(0,0)$};
