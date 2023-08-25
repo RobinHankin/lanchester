@@ -395,10 +395,17 @@ for(i in 2:n){
 ```
 
 ```{r plotA}
+matplot(A,type='l',lty=1)
+matplot(log(A/(1-A)),type="l",ylim=c(-10,10),lty=1,main="round-off error for p ~= 1")
 contour(log(A),asp=1)
+contour(log(A/(1-A)),asp=1)
 matplot(A + t(A)-1)
-jj <- seq_len(n-1)
-plot(jj,A[cbind(jj,jj+1)])
-plot(jj,log(A[cbind(jj+1,jj)]-0.5))
-points(jj,-log(jj)/2-1,type='l')
+N <- seq_len(n-1)
+plot(N,A[cbind(N,N+1)])
+delta <- A[cbind(N+1,N)]-0.5
+plot(N,log(delta),ylim=c(-3,0))
+points(N,-log(N)/2-1/sqrt(2),type='l')
+approx <- exp(-1/sqrt(2))/sqrt(N)
+plot(N,approx/delta)
 ```
+
