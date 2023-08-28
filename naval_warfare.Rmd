@@ -401,6 +401,8 @@ $$
 \fill (-1,0) circle[radius=6pt]; \node[text=red] at (-1.1, 0.1)  {$0$};
 \node at (-0.5, 0.7) {\half};
 \node at ( 0.5, 0.7) {\half};
+\node at (0, 0.8) {$(1,1)$};
+
 
 
 \draw[line width=0.5mm] ( 1,2) -- ( 0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -420,7 +422,7 @@ $$
 \node at ( 1.5, 1.7) {TBC};
 \node at (-0.5, 2.7) {\half};
 \node at ( 0.5, 2.7) {\half};
-
+\node at (0, 2.8) {$(2,2)$};
 
                 
 \draw[line width=0.5mm] ( 1,4) -- ( 0,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -440,6 +442,8 @@ $$
 \node at ( 1.5, 3.7) {TBC};
 \node at (-0.5, 4.7) {\half};
 \node at ( 0.5, 4.7) {\half};
+\node at (0, 4.8) {$(3,3)$};
+
 
 \draw[line width=0.5mm] ( 1,6) -- ( 0,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] ( 1,6) -- ( 2,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -458,6 +462,7 @@ $$
 \node at ( 1.5, 5.7) {TBC};
 \node at (-0.5, 6.7) {\half};
 \node at ( 0.5, 6.7) {\half};          
+\node at (0, 6.8) {$(4,4)$};
 
 
 
