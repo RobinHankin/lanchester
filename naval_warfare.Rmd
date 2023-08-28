@@ -115,28 +115,28 @@ f(10,11)
 
 
 %\node at (0.2, 0.1)  {$(0,0)$};
-\node at (1.2, 0.1)  {$(1,0)$};
-\node at (2.2, 0.1)  {$(2,0)$};
-\node at (3.2, 0.1)  {$(3,0)$};
-\node at (4.2, 0.1)  {$(4,0)$};
+\node[text=blue] at (1.2, 0.1)  {$(1,0)$};
+\node[text=blue] at (2.2, 0.1)  {$(2,0)$};
+\node[text=blue] at (3.2, 0.1)  {$(3,0)$};
+\node[text=blue] at (4.2, 0.1)  {$(4,0)$};
 
-\node at (0.2, 1.1)  {$(0,1)$};
-\node at (1.2, 1.1)  {$(1,1)$};
-\node at (2.2, 1.1)  {$(2,1)$};
-\node at (3.2, 1.1)  {$(3,1)$};
-\node at (4.2, 1.1)  {$(4,1)$};
+\node[text=blue] at (0.2, 1.1)  {$(0,1)$};
+\node[text=blue] at (1.2, 1.1)  {$(1,1)$};
+\node[text=blue] at (2.2, 1.1)  {$(2,1)$};
+\node[text=blue] at (3.2, 1.1)  {$(3,1)$};
+\node[text=blue] at (4.2, 1.1)  {$(4,1)$};
 
-\node at (0.2, 2.1)  {$(0,2)$};
-\node at (1.2, 2.1)  {$(1,2)$};
-\node at (2.2, 2.1)  {$(2,2)$};
-\node at (3.2, 2.1)  {$(3,2)$};
-\node at (4.2, 2.1)  {$(4,2)$};
+\node[text=blue] at (0.2, 2.1)  {$(0,2)$};
+\node[text=blue] at (1.2, 2.1)  {$(1,2)$};
+\node[text=blue] at (2.2, 2.1)  {$(2,2)$};
+\node[text=blue] at (3.2, 2.1)  {$(3,2)$};
+\node[text=blue] at (4.2, 2.1)  {$(4,2)$};
 
-\node at (0.2, 3.1)  {$(0,3)$};
-\node at (1.2, 3.1)  {$(1,3)$};
-\node at (2.2, 3.1)  {$(2,3)$};
-\node at (3.2, 3.1)  {$(3,3)$};
-\node at (4.2, 3.1)  {$(4,3)$};
+\node[text=blue] at (0.2, 3.1)  {$(0,3)$};
+\node[text=blue] at (1.2, 3.1)  {$(1,3)$};
+\node[text=blue] at (2.2, 3.1)  {$(2,3)$};
+\node[text=blue] at (3.2, 3.1)  {$(3,3)$};
+\node[text=blue] at (4.2, 3.1)  {$(4,3)$};
 
 %  probs for horizontal lines:
 \node at (0.5, 0.85)  {$\frac{1}{1+1}$};
@@ -294,28 +294,28 @@ $$
 
 
 %\node at (0.2, 0.1)  {$(0,0)$};
-\node at (1.2, 0.1)  {$(1,0)$};
-\node at (2.2, 0.1)  {$(2,0)$};
-\node at (3.2, 0.1)  {$(3,0)$};
-\node at (4.2, 0.1)  {$(4,0)$};
+\node[text=blue] at (1.2, 0.1)  {$(1,0)$};
+\node[text=blue] at (2.2, 0.1)  {$(2,0)$};
+\node[text=blue] at (3.2, 0.1)  {$(3,0)$};
+\node[text=blue] at (4.2, 0.1)  {$(4,0)$};
 
-\node at (0.2, 1.1)  {$(0,1)$};
-\node at (1.2, 1.1)  {$(1,1)$};
-\node at (2.2, 1.1)  {$(2,1)$};
-\node at (3.2, 1.1)  {$(3,1)$};
-\node at (4.2, 1.1)  {$(4,1)$};
+\node[text=blue] at (0.2, 1.1)  {$(0,1)$};
+\node[text=blue] at (1.2, 1.1)  {$(1,1)$};
+\node[text=blue] at (2.2, 1.1)  {$(2,1)$};
+\node[text=blue] at (3.2, 1.1)  {$(3,1)$};
+\node[text=blue] at (4.2, 1.1)  {$(4,1)$};
 
-\node at (0.2, 2.1)  {$(0,2)$};
-\node at (1.2, 2.1)  {$(1,2)$};
-\node at (2.2, 2.1)  {$(2,2)$};
-\node at (3.2, 2.1)  {$(3,2)$};
-\node at (4.2, 2.1)  {$(4,2)$};
+\node[text=blue] at (0.2, 2.1)  {$(0,2)$};
+\node[text=blue] at (1.2, 2.1)  {$(1,2)$};
+\node[text=blue] at (2.2, 2.1)  {$(2,2)$};
+\node[text=blue] at (3.2, 2.1)  {$(3,2)$};
+\node[text=blue] at (4.2, 2.1)  {$(4,2)$};
 
-\node at (0.2, 3.1)  {$(0,3)$};
-\node at (1.2, 3.1)  {$(1,3)$};
-\node at (2.2, 3.1)  {$(2,3)$};
-\node at (3.2, 3.1)  {$(3,3)$};
-\node at (4.2, 3.1)  {$(4,3)$};
+\node[text=blue] at (0.2, 3.1)  {$(0,3)$};
+\node[text=blue] at (1.2, 3.1)  {$(1,3)$};
+\node[text=blue] at (2.2, 3.1)  {$(2,3)$};
+\node[text=blue] at (3.2, 3.1)  {$(3,3)$};
+\node[text=blue] at (4.2, 3.1)  {$(4,3)$};
 
 %  probs for horizontal lines:
 \node at (0.5, 0.85)  {$\frac{1}{2}$};
@@ -401,9 +401,9 @@ $$
 \fill (-1,0) circle[radius=6pt]; \node[text=red] at (-1.1, 0.1)  {$0$};
 \node at (-0.5, 0.7) {\half};
 \node at ( 0.5, 0.7) {\half};
-\node at ( 0  , 0.8) {$(1,1)$};
-\node at (-0.75,0  ) {$(0,1)$};
-\node at ( 0.75,0  ) {$(1,0)$};
+\node[text=blue] at ( 0  , 0.8) {$(1,1)$};
+\node[text=blue] at (-0.75,0  ) {$(0,1)$};
+\node[text=blue] at ( 0.75,0  ) {$(1,0)$};
 
 
 
@@ -418,17 +418,17 @@ $$
 \fill (-1,2) circle[radius=2pt];
 \fill ( 1,2) circle[radius=2pt];
 \fill ( 0,3) circle[radius=2pt];
-\node at (-0.5 , 1.7) {TBC};
-\node at ( 0.5 , 1.7) {TBC};
-\node at (-1.5 , 1.7) {TBC};
-\node at ( 1.5 , 1.7) {TBC};
-\node at (-1.75, 1.0) {$(0,2)$};
-\node at ( 1.75, 1.0) {$(2,0)$};
-\node at (-1   , 1.8) {$(1,2)$};
-\node at ( 1   , 1.8) {$(2,1)$};
-\node at (-0.5 , 2.7) {\half};
-\node at ( 0.5 , 2.7) {\half};
-\node at ( 0.0 , 2.8) {$(2,2)$};
+\node            at (-0.5 , 1.7) {TBC};
+\node            at ( 0.5 , 1.7) {TBC};
+\node            at (-1.5 , 1.7) {TBC};
+\node            at ( 1.5 , 1.7) {TBC};
+\node[text=blue] at (-1.75, 1.0) {$(0,2)$};
+\node[text=blue] at ( 1.75, 1.0) {$(2,0)$};
+\node[text=blue] at (-1   , 1.8) {$(1,2)$};
+\node[text=blue] at ( 1   , 1.8) {$(2,1)$};
+\node            at (-0.5 , 2.7) {\half};
+\node            at ( 0.5 , 2.7) {\half};
+\node[text=blue] at ( 0.0 , 2.8) {$(2,2)$};
 
 
 
@@ -446,21 +446,21 @@ $$
 \fill (-1,4) circle[radius=2pt];
 \fill ( 1,4) circle[radius=2pt];
 \fill ( 0,5) circle[radius=2pt];
-\node at (-0.5 , 3.7) {TBC};
-\node at ( 0.5 , 3.7) {TBC};
-\node at (-1.5 , 3.7) {TBC};
-\node at ( 1.5 , 3.7) {TBC};
-\node at (-1.75, 3.0) {$(0,2)$};
-\node at ( 1.75, 3.0) {$(2,0)$};
-\node at (-1   , 3.8) {$(1,2)$};
-\node at ( 1   , 3.8) {$(2,1)$};
-\node at (-0.5 , 4.7) {\half};
-\node at ( 0.5 , 4.7) {\half};
-\node at ( 0.0 , 4.8) {$(2,2)$};
-		 
-		 
-		 
-		 
+\node            at (-0.5 , 3.7) {TBC};
+\node            at ( 0.5 , 3.7) {TBC};
+\node            at (-1.5 , 3.7) {TBC};
+\node            at ( 1.5 , 3.7) {TBC};
+\node[text=blue] at (-1.75, 3.0) {$(0,2)$};
+\node[text=blue] at ( 1.75, 3.0) {$(2,0)$};
+\node[text=blue] at (-1   , 3.8) {$(1,2)$};
+\node[text=blue] at ( 1   , 3.8) {$(2,1)$};
+\node            at (-0.5 , 4.7) {\half};
+\node            at ( 0.5 , 4.7) {\half};
+\node[text=blue] at ( 0.0 , 4.8) {$(2,2)$};
+
+
+
+
 \draw[line width=0.5mm] ( 1,6) -- ( 0,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] ( 1,6) -- ( 2,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] (-1,6) -- ( 0,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -472,23 +472,23 @@ $$
 \fill (-1,6) circle[radius=2pt];
 \fill ( 1,6) circle[radius=2pt];
 \fill ( 0,7) circle[radius=2pt];
-\node at (-0.5 , 5.7) {TBC};
-\node at ( 0.5 , 5.7) {TBC};
-\node at (-1.5 , 5.7) {TBC};
-\node at ( 1.5 , 5.7) {TBC};
-\node at (-1.75, 5.0) {$(0,2)$};
-\node at ( 1.75, 5.0) {$(2,0)$};
-\node at (-1   , 5.8) {$(1,2)$};
-\node at ( 1   , 5.8) {$(2,1)$};
-\node at (-0.5 , 6.7) {\half};
-\node at ( 0.5 , 6.7) {\half};
-\node at ( 0.0 , 6.8) {$(2,2)$};
-		 
+\node            at (-0.5 , 5.7) {TBC};
+\node            at ( 0.5 , 5.7) {TBC};
+\node            at (-1.5 , 5.7) {TBC};
+\node            at ( 1.5 , 5.7) {TBC};
+\node[text=blue] at (-1.75, 5.0) {$(0,2)$};
+\node[text=blue] at ( 1.75, 5.0) {$(2,0)$};
+\node[text=blue] at (-1   , 5.8) {$(1,2)$};
+\node[text=blue] at ( 1   , 5.8) {$(2,1)$};
+\node            at (-0.5 , 6.7) {\half};
+\node            at ( 0.5 , 6.7) {\half};
+\node[text=blue] at ( 0.0 , 6.8) {$(2,2)$};
+
 
 
 
 \end{tikzpicture}
-```					
+```
 
 
 
