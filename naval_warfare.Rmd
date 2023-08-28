@@ -504,6 +504,53 @@ $$
 ```
 
 
+```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+\newcommand{\half}{$\frac{1}{2}$}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
+
+
+\draw[line width=0.5mm] ( 1,2) -- ( 0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] ( 1,2) -- ( 2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (-1,2) -- ( 0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (-1,2) -- (-2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] ( 0,3) -- ( 1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] ( 0,3) -- (-1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\fill (-2,1) circle[radius=6pt]; 
+\fill ( 2,1) circle[radius=6pt];
+\fill (-1,2) circle[radius=2pt];
+\fill ( 1,2) circle[radius=2pt];
+\fill ( 0,3) circle[radius=2pt];
+\fill ( 0,1) circle[radius=2pt];
+\node[text=red ] at ( 2   , 1.2) {$1$};
+\node[text=red ] at (-2   , 1.2) {$0$};
+\node[text=red ] at ( 0   , 1.2) {\half}; 
+\node[text=red ] at ( 1   , 2.2) {$\frac{3a-1}{4a-2}$};
+\node[text=red ] at (-1   , 2.2) {$\frac{a-1}{4a-2}$};
+\node[text=teal] at (-0.5 , 1.7) {$\frac{a-1}{2a-1}$};
+\node[text=teal] at ( 0.5 , 1.7) {$\frac{a-1}{2a-1}$};
+\node[text=teal] at (-1.5 , 1.7) {$\frac{a}{2a-1}$};
+\node[text=teal] at ( 1.5 , 1.7) {$\frac{a}{2a-1}$};
+\node[text=blue] at (-1.6 , 1.0) {$(a,a-2)$};
+\node[text=blue] at ( 1.6 , 1.0) {$(a-2,a)$};
+\node[text=blue] at (-1   , 1.7) {$(a,a-1)$};
+\node[text=blue] at ( 1   , 1.7) {$(a-1,a)$};
+\node[text=teal] at (-0.5 , 2.7) {\half};
+\node[text=teal] at ( 0.5 , 2.7) {\half};
+\node[text=blue] at ( 0.0 , 2.8) {$(a,a)$};
+\node[text=blue] at ( 0.0 , 0.9){$(a-2,a)$};
+
+\end{tikzpicture}
+```
+
+
+
 
 ```{r calcarray,cache=TRUE}
 options(digits=4)
