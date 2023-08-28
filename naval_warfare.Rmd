@@ -203,7 +203,7 @@ f(10,11)
 ```
 
 
-$$P(a,b) = 
+$$P(a,b) =
 \frac{a}{a+b}P(a,b-1) + \frac{b}{a+b}P(a-1,b)\qquad a,b>0$$
 
 $$P(a,0)=1,a\geqslant 1,
@@ -401,7 +401,9 @@ $$
 \fill (-1,0) circle[radius=6pt]; \node[text=red] at (-1.1, 0.1)  {$0$};
 \node at (-0.5, 0.7) {\half};
 \node at ( 0.5, 0.7) {\half};
-\node at (0, 0.8) {$(1,1)$};
+\node at ( 0  , 0.8) {$(1,1)$};
+\node at (-0.75,0  ) {$(0,1)$};
+\node at ( 0.75,0  ) {$(1,0)$};
 
 
 
@@ -416,15 +418,23 @@ $$
 \fill (-1,2) circle[radius=2pt];
 \fill ( 1,2) circle[radius=2pt];
 \fill ( 0,3) circle[radius=2pt];
-\node at (-0.5, 1.7) {TBC};
-\node at ( 0.5, 1.7) {TBC};
-\node at (-1.5, 1.7) {TBC};
-\node at ( 1.5, 1.7) {TBC};
-\node at (-0.5, 2.7) {\half};
-\node at ( 0.5, 2.7) {\half};
-\node at (0, 2.8) {$(2,2)$};
+\node at (-0.5 , 1.7) {TBC};
+\node at ( 0.5 , 1.7) {TBC};
+\node at (-1.5 , 1.7) {TBC};
+\node at ( 1.5 , 1.7) {TBC};
+\node at (-1.75, 1.0) {$(0,2)$};
+\node at ( 1.75, 1.0) {$(2,0)$};
+\node at (-1   , 1.8) {$(1,2)$};
+\node at ( 1   , 1.8) {$(2,1)$};
+\node at (-0.5 , 2.7) {\half};
+\node at ( 0.5 , 2.7) {\half};
+\node at ( 0.0 , 2.8) {$(2,2)$};
 
-                
+
+
+
+
+
 \draw[line width=0.5mm] ( 1,4) -- ( 0,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] ( 1,4) -- ( 2,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] (-1,4) -- ( 0,3) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -436,15 +446,21 @@ $$
 \fill (-1,4) circle[radius=2pt];
 \fill ( 1,4) circle[radius=2pt];
 \fill ( 0,5) circle[radius=2pt];
-\node at (-0.5, 3.7) {TBC};
-\node at ( 0.5, 3.7) {TBC};
-\node at (-1.5, 3.7) {TBC};
-\node at ( 1.5, 3.7) {TBC};
-\node at (-0.5, 4.7) {\half};
-\node at ( 0.5, 4.7) {\half};
-\node at (0, 4.8) {$(3,3)$};
-
-
+\node at (-0.5 , 3.7) {TBC};
+\node at ( 0.5 , 3.7) {TBC};
+\node at (-1.5 , 3.7) {TBC};
+\node at ( 1.5 , 3.7) {TBC};
+\node at (-1.75, 3.0) {$(0,2)$};
+\node at ( 1.75, 3.0) {$(2,0)$};
+\node at (-1   , 3.8) {$(1,2)$};
+\node at ( 1   , 3.8) {$(2,1)$};
+\node at (-0.5 , 4.7) {\half};
+\node at ( 0.5 , 4.7) {\half};
+\node at ( 0.0 , 4.8) {$(2,2)$};
+		 
+		 
+		 
+		 
 \draw[line width=0.5mm] ( 1,6) -- ( 0,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] ( 1,6) -- ( 2,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] (-1,6) -- ( 0,5) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
@@ -453,21 +469,26 @@ $$
 \draw[line width=0.5mm] ( 0,7) -- (-1,6) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \fill (-2,5) circle[radius=6pt]; \node[text=red] at (-2.1, 5.1)  {$0$};
 \fill ( 2,5) circle[radius=6pt]; \node[text=red] at ( 2.1, 5.1)  {$1$};
-\fill (-1,6) circle[radius=2pt];                           
+\fill (-1,6) circle[radius=2pt];
 \fill ( 1,6) circle[radius=2pt];
 \fill ( 0,7) circle[radius=2pt];
-\node at (-0.5, 5.7) {TBC};
-\node at ( 0.5, 5.7) {TBC};
-\node at (-1.5, 5.7) {TBC};
-\node at ( 1.5, 5.7) {TBC};
-\node at (-0.5, 6.7) {\half};
-\node at ( 0.5, 6.7) {\half};          
-\node at (0, 6.8) {$(4,4)$};
+\node at (-0.5 , 5.7) {TBC};
+\node at ( 0.5 , 5.7) {TBC};
+\node at (-1.5 , 5.7) {TBC};
+\node at ( 1.5 , 5.7) {TBC};
+\node at (-1.75, 5.0) {$(0,2)$};
+\node at ( 1.75, 5.0) {$(2,0)$};
+\node at (-1   , 5.8) {$(1,2)$};
+\node at ( 1   , 5.8) {$(2,1)$};
+\node at (-0.5 , 6.7) {\half};
+\node at ( 0.5 , 6.7) {\half};
+\node at ( 0.0 , 6.8) {$(2,2)$};
+		 
 
 
 
 \end{tikzpicture}
-```
+```					
 
 
 
@@ -477,8 +498,8 @@ n <- 40
 A <- matrix(NA,n,n)
 A[1,] <- 1/factorial(seq_len(n) + 1)
 A[,1] <- 1-A[1,]
-for(i in 2:n){			
-  for(j in 2:n){			
+for(i in 2:n){
+  for(j in 2:n){
      A[i,j] <- i/(i+j)*A[i,j-1] + j/(i+j)*A[i-1,j]
   }
 }
@@ -498,4 +519,3 @@ points(N,-log(N)/2-1/sqrt(2),type='l')
 approx <- exp(-1/sqrt(2))/sqrt(N)
 plot(N,approx/delta)
 ```
-
