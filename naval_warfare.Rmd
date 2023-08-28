@@ -381,6 +381,45 @@ $$
 ```
 
 
+```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
+\fill (0,1) circle[radius=4pt];  
+\fill (-1,2) circle[radius=4pt];
+\fill (1,2) circle[radius=4pt];
+\fill (0,3) circle[radius=4pt];
+
+\fill (0,5) circle[radius=4pt];
+\fill (0,7) circle[radius=4pt];
+\fill (3,7) circle[radius=4pt];
+\fill (-3,7) circle[radius=4pt];
+
+\draw[line width=0.5mm] (0,1) -- ( 1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (0,1) -- (-1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+\draw[line width=0.5mm] (0,3) -- ( 1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (0,3) -- (-1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+\draw[line width=0.5mm] ( 1,2) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] ( 1,2) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+
+\draw[line width=0.5mm] (-1,2) -- ( 0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[line width=0.5mm] (-1,2) -- (-2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+
+
+\end{tikzpicture}
+```
+
+
+
 ```{r calcarray,cache=TRUE}
 options(digits=4)
 n <- 40
