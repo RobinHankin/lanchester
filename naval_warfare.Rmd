@@ -715,21 +715,21 @@ $$
 \fill (-1,6) circle[radius=2pt];
 \fill ( 1,6) circle[radius=2pt];
 \fill ( 0,7) circle[radius=2pt];
-\node[text=blue] at (-1.75, 5.0) {$(4,2)$};
-\node[text=blue] at ( 1.75, 5.0) {$(2,4)$};
 \node[text=red ] at (-2   , 5.2) {$0$};
 \node[text=red ] at ( 0   , 5.2) {\half};
 \node[text=red ] at ( 2   , 5.2) {$1$};
-\node[text=blue] at (-1   , 5.8) {$(4,3)$};
-\node[text=blue] at ( 1   , 5.8) {$(3,4)$};
 \node[text=red ] at (-1   , 6.2) {$\frac{3}{14}$};
 \node[text=red ] at ( 1   , 6.2) {$\frac{11}{14}$};
+\node[text=blue] at (-1.75, 5.0) {$(4,2)$};
+\node[text=blue] at ( 1.75, 5.0) {$(2,4)$};
+\node[text=blue] at (-1   , 5.8) {$(4,3)$};
+\node[text=blue] at ( 1   , 5.8) {$(3,4)$};
+\node[text=blue] at ( 0.0 , 6.8) {$(4,4)$};
 \node[text=teal] at (-1.5 , 5.7) {$\frac{4}{7}$};
 \node[text=teal] at (-0.5 , 5.7) {$\frac{3}{7}$};
 \node[text=teal] at ( 0.5 , 5.7) {$\frac{3}{7}$};
 \node[text=teal] at ( 1.5 , 5.7) {$\frac{4}{7}$};
 \node[text=teal] at (-0.5 , 6.7) {\half};
-\node[text=blue] at ( 0.0 , 6.8) {$(4,4)$};
 \node[text=teal] at ( 0.5 , 6.7) {\half};
 
 
