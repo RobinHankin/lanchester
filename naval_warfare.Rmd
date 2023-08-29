@@ -658,35 +658,36 @@ $$
 \draw[line width=0.5mm] ( 0,7) -- ( 1,6) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 \draw[line width=0.5mm] ( 0,7) -- (-1,6) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
 
-\node[text=red ] at (-2   , 5.2) {$\frac{3}{20}$};
-\node[text=red ] at ( 0   , 5.2) {\half};
-\node[text=red ] at ( 2   , 5.2) {$\frac{17}{20}$};
-\node[text=red ] at (-1   , 6.2) {$\frac{3}{10}$};
-\node[text=red ] at ( 1   , 6.2) {$\frac{7}{10}$};
 \node[text=red ] at (-1.0 , 0.2) {$0$};
 \node[text=red ] at ( 1.0 , 0.2) {$1$};
-\node[text=red ] at ( 2.0 , 3.2) {$\frac{23}{24}$};
-\node[text=red ] at (-2.0 , 3.2) {$\frac{1}{24}$};
 \node[text=red ] at (-2   , 1.2) {$0$};
-\node[text=red ] at (-1   , 2.2) {$\frac{1}{6}$};
 \node[text=red ] at ( 0   , 1.2) {\half};
-\node[text=red ] at ( 1   , 2.2) {$\frac{5}{6}$};
 \node[text=red ] at ( 2   , 1.2) {$1$};
 \node[text=red ] at (-3   , 2.2) {$0$};
-\node[text=red ] at ( 3   , 4.2) {$1$};
-\node[text=red ] at (-3   , 4.2) {$0$};
+\node[text=red ] at (-1   , 2.2) {$\frac{1}{6}$};
+\node[text=red ] at ( 1   , 2.2) {$\frac{5}{6}$};
 \node[text=red ] at ( 3   , 2.2) {$1$};
+\node[text=red ] at (-2.0 , 3.2) {$\frac{1}{24}$};
+\node[text=red ] at ( 2.0 , 3.2) {$\frac{23}{24}$};
 \node[text=red ] at ( 0   , 3.2) {\half};
+\node[text=red ] at (-3   , 4.2) {$0$};
 \node[text=red ] at (-1   , 4.2) {$\frac{9}{40}$};
 \node[text=red ] at ( 1   , 4.2) {$\frac{31}{40}$};
+\node[text=red ] at ( 3   , 4.2) {$1$};
+\node[text=red ] at (-2   , 5.2) {$\frac{3}{20}$};
+\node[text=red ] at ( 0   , 5.2) {\half};
+\node[text=red ] at ( 2   , 5.2) {$\frac{37}{40}$};
+\node[text=red ] at (-1   , 6.2) {$\frac{9}{35}$};
+\node[text=red ] at ( 1   , 6.2) {$\frac{26}{35}$};
+
+\node[text=blue] at (-0.75, 0  ) {$(1,0)$};
+\node[text=blue] at ( 0.75, 0  ) {$(0,1)$};
 \node[text=blue] at (-1.75, 5.0) {$(4,2)$};
 \node[text=blue] at ( 1.75, 5.0) {$(2,4)$};
+\node[text=blue] at ( 0  ,  0.8) {$(1,1)$};
 \node[text=blue] at (-1   , 5.8) {$(4,3)$};
 \node[text=blue] at ( 1   , 5.8) {$(3,4)$};
 \node[text=blue] at ( 0.0 , 6.8) {$(4,4)$};
-\node[text=blue] at (-0.75, 0  ) {$(1,0)$};
-\node[text=blue] at ( 0.75, 0  ) {$(0,1)$};
-\node[text=blue] at ( 0  ,  0.8) {$(1,1)$};
 \node[text=blue] at (-1.75, 1.0) {$(2,0)$};
 \node[text=blue] at (-1   , 1.8) {$(2,1)$};
 \node[text=blue] at ( 0.0 , 2.8) {$(2,2)$};
@@ -719,12 +720,13 @@ $$
 \node[text=teal] at (-0.5 , 3.7) {$\frac{2}{5}$};
 \node[text=teal] at ( 0.5 , 3.7) {$\frac{2}{5}$};
 \node[text=teal] at ( 1.5 , 3.7) {$\frac{3}{5}$};
+
+\node[text=teal] at (-2.5 , 4.7) {$\frac{4}{6}$};
+\node[text=teal] at (-1.5 , 4.7) {$\frac{2}{6}$};
 \node[text=teal] at (-0.5 , 4.7) {\half};
 \node[text=teal] at ( 0.5 , 4.7) {\half};
-\node[text=teal] at ( 1.5 , 4.7) {$\frac{4}{6}$};
-\node[text=teal] at (-1.5 , 4.7) {$\frac{2}{6}$};
-\node[text=teal] at ( 2.5 , 4.7) {$\frac{2}{6}$};
-\node[text=teal] at (-2.5 , 4.7) {$\frac{4}{6}$};
+\node[text=teal] at ( 1.5 , 4.7) {$\frac{2}{6}$};
+\node[text=teal] at ( 2.5 , 4.7) {$\frac{4}{6}$};
 
 
 \fill ( 1,0) circle[radius=6pt];
