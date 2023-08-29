@@ -674,7 +674,7 @@ $$
 \node[text=red ] at (-1   , 4.2) {$\frac{9}{40}$};
 \node[text=red ] at ( 1   , 4.2) {$\frac{31}{40}$};
 \node[text=red ] at ( 3   , 4.2) {$1$};
-\node[text=red ] at (-2   , 5.2) {$\frac{3}{20}$};
+\node[text=red ] at (-2   , 5.2) {$\frac{3}{40}$};
 \node[text=red ] at ( 0   , 5.2) {\half};
 \node[text=red ] at ( 2   , 5.2) {$\frac{37}{40}$};
 \node[text=red ] at (-1   , 6.2) {$\frac{9}{35}$};
