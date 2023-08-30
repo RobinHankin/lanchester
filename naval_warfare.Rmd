@@ -756,7 +756,90 @@ $$
 \end{tikzpicture}
 ```
 
+```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+\newcommand{\half}{$\frac{1}{2}$}
 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
+
+\draw[line width=0.5mm] ( 1,1) -- ( 0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+\draw[line width=0.5mm] (-1,1) -- ( 0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+\draw[line width=0.5mm] ( 0,2) -- ( 1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+\draw[line width=0.5mm] ( 0,2) -- (-1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+\draw[line width=0.5mm] ( 1,1) -- ( 2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+
+\fill ( 0,0) circle[radius=2pt];
+\fill (-1,1) circle[radius=2pt];
+\fill ( 1,1) circle[radius=2pt];
+\fill ( 0,2) circle[radius=2pt];
+\fill ( 2,0) circle[radius=6pt];
+
+
+\node[text=red ] at ( 0   , 0.1) {$x_{n}$};
+\node[text=red ] at (-1   , 1.1) {$\frac{1}{2}$};
+\node[text=red ] at ( 0   , 2.1) {$x_{n+1}$};
+\node[text=red ] at ( 1   , 1.2) {$y$};
+\node[text=red ] at ( 2   , 0.2) {$1$};
+
+\node[text=blue] at ( 0  , -0.15) {$(n-1,n)$};
+\node[text=blue] at ( 2  , -0.15) {$(n-2,n+1)$};
+\node[text=blue] at ( 0  ,  1.6) {$(n,n+1)$};
+\node[text=blue] at (-1 ,   0.8) {$(n,n)$};
+\node[text=blue] at ( 1 ,   0.6) {$(n-1,n+1)$};
+
+\node[text=teal] at (-0.5 , 1.7) {$\frac{n}{2n+1}$};
+\node[text=teal] at ( 0.5 , 1.7) {$\frac{n+1}{2n+1}$};
+\node[text=teal] at (-0.5 , 0.7) {$\frac{1}{2}$};
+\node[text=teal] at ( 0.5 , 0.7) {$\frac{n-1}{2n}$};
+\node[text=teal] at ( 1.5 , 0.7) {$\frac{n+1}{2n}$};
+
+
+\end{tikzpicture}
+```
+
+
+Above we can set up a recurrence relation:
+
+$$
+y = x_n\cdot\frac{n-1}{2n} + 1\cdot\frac{n+1}{2n}
+$$
+
+$$
+x_{n+1} = \frac{1}{2}\cdot\frac{n}{2n+1} + y\cdot\frac{n+1}{2n+1}
+$$
+
+Or altogether
+
+$$
+x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}
+$$
+
+
+To solve these:
+
+```
+e = RSolve[{a[n+1] ==a[n]*(n^2-1)/(4*n^2+2*n) + (2*n^2+2*n+1)/(4*n^2+2*n),a[2]==5/6},a[n],n] // FullSimplify 
+p = a[n] /. e 
+f = p[[1]] 
+```
+
+
+This gives:
+
+```
+                                (9 + I Sqrt[3]) Sqrt[Pi]                                     1
+       8 - 12 n + Gamma[1 + n] (------------------------ + 2 Hypergeometric2F1Regularized[1, - + n, 2 + n, 4])
+                                     n       1                                               2
+                                    4  Gamma[- + n]
+   1                                         2
+ -(--) -------------------------------------------------------------------------------------------------------
+   18                                                  -1 + n
+```
 
 
 
