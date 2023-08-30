@@ -213,7 +213,7 @@ $$
 
 
 
-```{tikz, fig.cap = "Partial probability tree for five competitors $a-e$ with $a$ supporting $b$, hyper3 approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "Partial probability tree for naval warfare", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -381,8 +381,7 @@ $$
 \end{tikzpicture}
 ```
 
-
-```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "more than two behind means you have lost with probability 1", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -500,8 +499,7 @@ $$
 \end{tikzpicture}
 ```
 
-
-```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "more than _two_ behind means you have lost with probability 1, single rep unit", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -544,7 +542,8 @@ $$
 \end{tikzpicture}
 ```
 
-```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+
+```{tikz, fig.cap = "more than _three_ behind means you have lost with probability 1, single rep unit", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -617,7 +616,7 @@ $$
 
 
 
-```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "Behind by three or more means you have lost with probability 1, start at $(4,4)$", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -756,7 +755,7 @@ $$
 \end{tikzpicture}
 ```
 
-```{tikz, fig.cap = "approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "behind by three or more means losing with probability 1, single rep unit for recurrence relation", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -828,7 +827,6 @@ p = a[n] /. e
 f = p[[1]] 
 ```
 
-
 This gives:
 
 ```
@@ -839,6 +837,73 @@ This gives:
    1                                         2
  -(--) -------------------------------------------------------------------------------------------------------
    18                                                  -1 + n
+```
+
+NB: mathematica sometimes gets its knickers in a twist and gives an
+equivalent, but much more complicated (!), result.  You just have to
+try repeatedly and say a little prayer.  Using `FullSimplify`
+sometimes helps.  Anyway, if the moon is full and the auspices are
+favourable you get:
+
+$$
+\frac{1}{18(n-1)}
+\left(
+12n-8- \frac{(9+i\sqrt{3})\sqrt{\pi}\Gamma(n+1)}{4^n\Gamma(n+1/2)}-2\Gamma(n+1)\widetilde{{}_2F_1}(1,n+1/2;n+2;4)
+\right)
+$$
+
+For some reason mathematica will not simplify further, but by hand
+(and with a little bit of help from Milton and Irene) we find:
+
+$$
+\frac{1}{18(n-1)}
+\left(
+12n-8- \frac{(9+i\sqrt{3})\sqrt{\pi}\Gamma(n+1)}{4^n\Gamma(n+1/2)}-\frac{2{}_2F_1(1,n+1/2;n+2;4)}{n+1}
+\right)
+$$
+
+$$
+\frac{1}{9(n-1)}
+\left(
+6n-4- \frac{\sqrt{\pi}(9+i\sqrt{3})\Gamma(n+1)}{2\cdot 4^n\Gamma(n+1/2)}-\frac{{}_2F_1(1,n+1/2;n+2;4)}{n+1}
+\right)
+$$
+
+$$
+\frac{1}{9(n-1)}
+\left(
+  6n-4-
+(9+i\sqrt{3})\frac{(n!)^2}{2(2n!)}
+-\frac{{}_2F_1(1,n+1/2;n+2;4)}{n+1}
+\right)
+$$
+
+
+$$
+\frac{1}{9(n-1)}
+\left(  6n-4-  \frac{9+i\sqrt{3}}{2{2n\choose n\,\,n}}-\frac{{}_2F_1(1,n+1/2;n+2;4)}{n+1}\right)
+$$
+
+
+(the tilde in $\widetilde{{}_2F_1}(1,n+1/2;n+2;4)$ means the
+_regularized_ ${}_2F_1$ Gauss hypergeometric function).  The
+combinatorical term $\frac{9+i\sqrt{3}}{2{2n\choose n\,\,n}}$ tends to
+zero quite quickly, going as $\sqrt{n}4^{-n}$ (from Stirling).  The
+hypergeometric term is harder.  First, note that it is evaluated _on_
+the cut line (which goes from $1+0i$ to $\infty$ along the real axis);
+the hypergeometric function is defined on the cut line as being
+continuous from below.  In any event, the imaginary component tends to
+zero as $n\longrightarrow\infty$.
+
+
+
+```{r}
+library("hypergeo")
+t1 <- function(n){gamma(n+1)/(gamma(n+1/2)*4^n)}
+t2 <- function(n){abs(Re(hypergeo(1,n+1/2,n+2,4)/(n+1)))}
+n <- 1:20
+plot(n,t1(n),log='y')
+plot(n,t2(n),log='y')
 ```
 
 
