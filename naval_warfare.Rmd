@@ -914,6 +914,14 @@ $$
 \four{n+2}{1/2-n}{1}{3/2}\ft\left(n+\frac{1}{2},-\frac{1}{2};n+\frac{1}{2};\frac{1}{4}\right)
 $$
 
+In the above, the first term is
+$\frac{n+1}{n-1/2}\ft(1,-n;\frac{3}{2}-n;\frac{1}{4})$ and for the
+second we can use the identity $\ft(a,b;b;z)=(1-z)^{-a}$ to get
+$\Gamma(2+n)\Gamma(1/2-n)\sqrt{3/\pi}$
+
+I am struggling with $\Gamma(2+n)\Gamma(1/2-n)$.
+
+
 
 
 ```{r}
