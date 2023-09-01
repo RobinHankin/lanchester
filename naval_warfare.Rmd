@@ -945,12 +945,15 @@ $$
 
 Now we have $\Gamma(1/2-n) =
 \frac{(-4)^n\sqrt{\pi}}{2}\cdot\frac{\Gamma(n)}{\Gamma(2n)}$; and also
-we know that $\Gamma(2n)/\Gamma(n)^2=(2n-1){2n\choose n\,\,n}$, so
-$\Gamma(1/2-n)=\frac{(-4)^n\sqrt{\pi}}{2(2n-1){2n\choose n\,\,n}}$.
-So overall the second term becomes
+we know that
 
+$\Gamma(2n)/\Gamma(n)^2=(n/2)\cdot{2n\choose n\,\,n}$, or
+$\frac{\Gamma(n)}{\Gamma(2n)} = \frac{2}{n\Gamma(n){2n\choose n\,\,n}}$.
 
-$$-i\frac{\sqrt{3}}{4}\cdot\frac{\Gamma(n+2)}{(2n-1){2n\choose n\,\,n}}$$
+So $\Gamma(1/2-n)=\frac{(-4)^n\sqrt{\pi}}{n\Gamma(n){2n\choose
+n\,\,n}}$.  So overall the second term becomes, after simplification,
+
+$$-i\frac{\sqrt{3}}{2}\cdot\frac{n+1}{2n\choose n\,\,n}$$
 
 
 Going back to the mathematica expression we have
@@ -958,13 +961,25 @@ Going back to the mathematica expression we have
 $$
 \frac{\ft(1,n+1/2;n+2;4)}{n+1}=
 -\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
--i\frac{\sqrt{3}}{4}\cdot\frac{\Gamma(n+1)}{(2n-1){2n\choose n\,\,n}}
+-\frac{i\sqrt{3}}{2{2n\choose n\,\,n}}
 $$
 
 
 
+$$
+\frac{1}{9(n-1)}
+\left(6n-4-  \frac{9+i\sqrt{3}}{2{2n\choose n\,\,n}}-(
+-\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
+-\frac{i\sqrt{3}}{2{2n\choose n\,\,n}})
+\right)
+$$
 
 
+$$
+\frac{1}{9(n-1)}
+\left(6n-4-  \frac{9}{2{2n\choose n\,\,n}}+\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
+\right)
+$$
 
 
 
