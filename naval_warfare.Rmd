@@ -470,14 +470,44 @@ Try the next column:
 \node[text=blue] at (2.2, 2.1)  {$(n+1,3)$};
 
 \node[text=teal] at (1.5, 1.85)  {$\frac{n+1}{n+4}$};
-\node[text=teal] at (1.85, 1.5)  {$\frac{3}{n+3}$};
+\node[text=teal] at (1.85, 1.5)  {$\frac{3}{n+4}$};
 
 \end{tikzpicture}
 ```
 
+$$x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$$
 
-$$x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+3)$$
+This has solution, together with $x_1=\frac{23}{24}$, of
 
+$$x_n=\frac{2\cdot 3^{n+3}+(n+3)(n+2-2^{n+4})}{2(n+3)!}$$
+
+$$x_n=\frac{54\cdot 3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}$$
+
+```{r testrecur}
+f <- function(n){(54*3^n-16*(n+3)*2^n+(n+3)*(n+2))/(2*factorial(n+3))}
+f(1:4) - c(23/24,31/40,1/2,82/315)
+```
+
+Using Stirling gives us that
+
+$$s_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
+n^{-7/2}$$
+
+```{r exactapprox}
+fapprox <- function(n){27/sqrt(2*pi)*(3/n)^n*exp(n)/n^(7/2)}
+f(50)/fapprox(50)
+f(150)/fapprox(150)
+```
+
+Better to use logs:
+
+```{r logexact}
+flog <- function(n){log((54*3^n-16*(n+3)*2^n+(n+3)*(n+2)))-log(2)-lfactorial(n+3)}
+glog <- function(n){log(27/sqrt(2*pi))+n+n*log(3/n)-(7/2)*log(n)}
+c(flog(100),glog(100),flog(100)-glog(100))
+flog(1000)  # some work to do here...
+glog(1000)
+```
 
 
 ```{tikz, fig.cap = "Being two or more behind means you have lost with probability 1", fig.ext = 'png', echo=FALSE}
