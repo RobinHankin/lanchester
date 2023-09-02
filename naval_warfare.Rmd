@@ -35,7 +35,7 @@ f(10,11)
 
 
 
-```{tikz, fig.cap = "Partial probability tree for five competitors $a-e$ with $a$ supporting $b$, hyper3 approach", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "Partial probability tree, up to $(3,4)$", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -213,7 +213,7 @@ $$
 
 
 
-```{tikz, fig.cap = "Partial probability tree for naval warfare", fig.ext = 'png', echo=FALSE}
+```{tikz, fig.cap = "Partial probability tree for naval warfare, fraction form", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -380,6 +380,105 @@ $$
 
 \end{tikzpicture}
 ```
+
+```{tikz, fig.cap = "single repeating cell: $x_{n+1}=\\frac{n+1}{(n+3)!}+\\frac{2x_n}{n+3}$", fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
+
+\draw[color=gray ,line width=0.5mm] (1,1) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (2,1) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,2) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=black,line width=0.5mm] (2,2) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,1) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,2) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (2,1) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=black,line width=0.5mm] (2,2) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+\fill[color=gray] (1,1) circle[radius=3pt];
+\fill             (2,1) circle[radius=3pt];
+\fill             (1,2) circle[radius=3pt];
+\fill             (2,2) circle[radius=3pt];
+
+\node[text=red] at ( 1.8, 1.1)  {$x_n$};
+\node[text=red] at ( 0.8, 2.1)  {$\frac{1}{(n+1)!}$};
+\node[text=red] at ( 1.8, 2.1)  {$x_{n+1}$};
+
+\node[text=blue] at (2.2, 1.1)  {$(n,2)$};
+\node[text=blue] at (1.2, 2.1)  {$(n+1,1)$};
+\node[text=blue] at (2.2, 2.1)  {$(n+1,2)$};
+
+\node[text=teal] at (1.5, 1.85)  {$\frac{n+1}{n+3}$};
+\node[text=teal] at (1.85, 1.5)  {$\frac{2}{n+3}$};
+
+\end{tikzpicture}
+```
+
+Looking at the recurrence
+$x_{n+1}=\frac{n+1}{(n+3)!}+\frac{2x_n}{n+3}$, together with the
+boundary condition that $x_1=\frac{5}{6}$, we can solve this to give
+
+$$x_n = \frac{2^{n+2}-(n+2)}{(n+2)!}$$
+
+
+Visually:
+
+```{r plotn}
+f <- function(n){(2^(n+2)-n-2)/factorial(n+2)}
+n <- 1:10
+plot(n,f(n),log='y')
+```
+
+
+Try the next column:
+
+```{tikz, fig.cap = "single repeating cell NEXT COLUMN", fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3cm,y=3cm]
+
+\draw[color=gray ,line width=0.5mm] (1,1) -- (0,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (2,1) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,2) -- (0,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=black,line width=0.5mm] (2,2) -- (1,2) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,1) -- (1,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (1,2) -- (1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=gray ,line width=0.5mm] (2,1) -- (2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+\draw[color=black,line width=0.5mm] (2,2) -- (2,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; ;
+
+\fill[color=gray] (1,1) circle[radius=3pt];
+\fill             (2,1) circle[radius=3pt];
+\fill             (1,2) circle[radius=3pt];
+\fill             (2,2) circle[radius=3pt];
+
+\node[text=red] at ( 1.8, 1.1)  {$x_n$};
+\node[text=red] at ( 0.6, 2.1)  {$\frac{2^{n+3}-n-3}{(n+3)!}$};
+\node[text=red] at ( 1.8, 2.1)  {$x_{n+1}$};
+
+\node[text=blue] at (2.2, 1.1)  {$(n,3)$};
+\node[text=blue] at (1.2, 2.1)  {$(n+1,2)$};
+\node[text=blue] at (2.2, 2.1)  {$(n+1,3)$};
+
+\node[text=teal] at (1.5, 1.85)  {$\frac{n+1}{n+4}$};
+\node[text=teal] at (1.85, 1.5)  {$\frac{3}{n+3}$};
+
+\end{tikzpicture}
+```
+
+
+$$x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+3)$$
+
+
 
 ```{tikz, fig.cap = "Being two or more behind means you have lost with probability 1", fig.ext = 'png', echo=FALSE}
 \usetikzlibrary{arrows}
