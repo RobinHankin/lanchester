@@ -63,13 +63,37 @@ pdfkeywords={Naval warfare, stochastic model}
 
 \section{Introduction}
 
-Here I consider the following problem: navies $A,B$ deploy fleets of
-$a,b$ ships respectively and engage in battle.  At any point in time,
-the probability that the next ship to be sunk is one of $A$ is
-$b/(a+b)$.  The winner is the first to destroy all the other fleet's
-ships.  What are the probabilities of winning for general
-$a,b\in\mathbb{N}$?
+Here I consider the following recursive definition for $p(a,b)$,
+$a,b\in\mathbb{N}\backslash (0,0)$:
 
+$$
+p(a,b) = \begin{cases}
+1 & a\geqslant 1, b=0\\
+0 & b\geqslant 1, a=0\\
+\frac{a}{a+b}\cdot p(a,b-1) + \frac{b}{a+b}\cdot p(a-1,b)  & a,b\geqslant 1
+\end{cases}
+$$
+
+
+The preferred interpretation of the problem is as follows: navies
+$A,B$ deploy fleets of $a,b$ ships respectively and engage in battle.
+At any point in time, the probability that the next ship to be sunk is
+one of $A$ is $b/(a+b)$.  The winner is the first to destroy all the
+other fleet's ships; $p(a,b)$ becomes the probability of navy $B$
+losing, that is, achieving $(b,0)$ for some $b>0$.
+
+
+\section{Preliminary results}
+
+From now on, it is assumed that $a,b>0$ unless otherwise indicated.
+The following results are immediate:
+
+\begin{itemize}
+\item $0<p(a,b)<1$, $a,b>0$
+\item $p(a,b)+p(b,a)=1$
+\item $p(n,n)=\frac{1}{2}$, $n>0$
+\item $p(n,1)=\frac{1}{n!}$, $p(1,n)=\frac{n!-1}{n!}$, $n>0$
+\end{itemize}
 
 \section{Further work}
 
@@ -77,6 +101,7 @@ We might consider the general case of $n>2$ mutually antagonistic
 fleets, and/or the case where the ships of each fleet have different
 effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
 a}{\alpha a+\beta b}, \frac{\beta b}{\alpha a+\beta b}$.
+
 
 
 \bibliographystyle{apalike}
