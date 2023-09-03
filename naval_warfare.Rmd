@@ -484,8 +484,8 @@ $$x_n=\frac{2\cdot 3^{n+3}+(n+3)(n+2-2^{n+4})}{2(n+3)!}$$
 $$x_n=\frac{54\cdot 3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}$$
 
 ```{r testrecur}
-f <- function(n){(54*3^n-16*(n+3)*2^n+(n+3)*(n+2))/(2*factorial(n+3))}
-f(1:4) - c(23/24,31/40,1/2,82/315)
+f_exact <- function(n){(54*3^n-16*(n+3)*2^n+(n+3)*(n+2))/(2*factorial(n+3))}
+f_exact(1:4) - c(23/24,31/40,1/2,82/315)
 ```
 
 Using Stirling gives us that
@@ -494,20 +494,43 @@ $$s_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
 n^{-7/2}$$
 
 ```{r exactapprox}
-fapprox <- function(n){27/sqrt(2*pi)*(3/n)^n*exp(n)/n^(7/2)}
-f(50)/fapprox(50)
-f(150)/fapprox(150)
+f_approx <- function(n){27/sqrt(2*pi)*(3/n)^n*exp(n)/n^(7/2)}
 ```
 
-Better to use logs:
+To compare them we will use a bespoke comparison function:
+
+```{r definecomp}
+comp <- function(x,y){c(LHS=x,RHS=y,diff=x-y)}
+comp(f_exact(50),f_approx(50))
+```
+
+Try a larger value of $n$:
+
+```{r}
+f_exact(1000)
+```
+
+Above, see how `f_exact()` fails for $n=1000$, due to overflow.  It is
+better to use logs, and some reorganisation:
 
 ```{r logexact}
-flog <- function(n){log((54*3^n-16*(n+3)*2^n+(n+3)*(n+2)))-log(2)-lfactorial(n+3)}
-glog <- function(n){log(27/sqrt(2*pi))+n+n*log(3/n)-(7/2)*log(n)}
-c(flog(100),glog(100),flog(100)-glog(100))
-flog(1000)  # some work to do here...
-glog(1000)
+f_approx_log <- function(n){log(27/sqrt(2*pi))+n+n*log(3/n)-(7/2)*log(n)}
+f_exact_log <- function(n){
+return(
+        +(n+3)*log(3)
+	+log(1 - (n+3)*(2/3)^(n+3) + (n+2)*(n+3)/3^(n+3)/2)
+	-lfactorial(n+3)
+	)
+}
 ```
+
+Now we can use larger values of $n$:
+
+```{r trylargen}
+comp(f_approx_log(100),f_exact_log(100))
+comp(f_approx_log(1000),f_exact_log(1000))
+```
+and we see very close agreement with $n=1000$; Stirling is good!
 
 
 ```{tikz, fig.cap = "Being two or more behind means you have lost with probability 1", fig.ext = 'png', echo=FALSE}
