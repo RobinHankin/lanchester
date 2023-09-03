@@ -83,7 +83,6 @@ one of $A$ is $b/(a+b)$.  The winner is the first to destroy all the
 other fleet's ships; $p(a,b)$ becomes the probability of navy $B$
 losing, that is, achieving $(b,0)$ for some $b>0$.
 
-
 \section{Preliminary results}
 
 From now on, it is assumed that $a,b>0$ unless otherwise indicated.
@@ -93,7 +92,7 @@ The following results are immediate:
 \item $0<p(a,b)<1$, $a,b>0$
 \item $p(a,b)+p(b,a)=1$
 \item $p(n,n)=\frac{1}{2}$, $n>0$
-\item $p(n,1)=\frac{1}{n!}$, $p(1,n)=\frac{n!-1}{n!}$, $n>0$
+\item $p(n,1)=\frac{n!-1}{n!}$, $p(1,n)=\frac{1}{n!}$, $n>0$
 \end{itemize}
 
 Figure~\ref{small_ab} shows some results for small values of $(a,b)$.
@@ -104,9 +103,9 @@ Figure~\ref{small_ab} shows some results for small values of $(a,b)$.
 library(tikzDevice)
 cat("\\input{small_ab_transition.tex}")
 @
-\caption{Transition diagram for $(a,b)\preccurlyeq(3,4)$.
+\caption{Transition diagram for $(a,b)\preccurlyeq(4,3)$.
 Blue\label{small_ab} figures show the state of each node, red shows
-the winning probability for $B$, and teal shows transition
+the winning probability for $A$, and teal shows transition
 probabilities}
 \end{figure}
 
