@@ -61,9 +61,6 @@ pdfkeywords={Naval warfare, stochastic model}
 
 \SweaveOpts{}
 
-options(tikzLatex = "/usr/bin/pdflatex")
-
-
 
 \section{Introduction}
 
