@@ -51,6 +51,7 @@ pdfauthor={Robin K. S.~Hankin},
 pdfkeywords={Naval warfare, stochastic model}
 }
 
+\usepackage{tikz}
 \begin{document}
 \maketitle
 
@@ -59,6 +60,9 @@ pdfkeywords={Naval warfare, stochastic model}
 \end{abstract}
 
 \SweaveOpts{}
+
+options(tikzLatex = "/usr/bin/pdflatex")
+
 
 
 \section{Introduction}
@@ -102,6 +106,13 @@ fleets, and/or the case where the ships of each fleet have different
 effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
 a}{\alpha a+\beta b}, \frac{\beta b}{\alpha a+\beta b}$.
 
+\begin{figure}
+<<name = tikzFig, echo = FALSE, results = tex>>=
+library(tikzDevice)
+cat("\\input{small_ab_transition.tex}")
+@
+\caption{"SDFKAHSDFLKHASDKADF"}
+\end{figure}
 
 
 \bibliographystyle{apalike}
