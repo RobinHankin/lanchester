@@ -1,0 +1,85 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+
+\documentclass{article}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amssymb}        % needed for \leqslant
+\usepackage{amsmath}        % needed for cases
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage{doi}
+\usepackage{wrapfig}
+
+
+
+\title{Naval warfare in R}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{ \href{https://orcid.org/0000-0001-5982-0415}{\includegraphics[width=0.03\textwidth]{orcid.pdf}\hspace{1mm}Robin K. S.~Hankin}\thanks{\href{https://academics.aut.ac.nz/robin.hankin}{work};  
+\href{https://www.youtube.com/watch?v=JzCX3FqDIOc&list=PL9_n3Tqzq9iWtgD8POJFdnVUCZ_zw6OiB&ab_channel=TrinTragulaGeneralRelativity}{play}} \\
+ Auckland University of Technology\\
+	\texttt{hankin.robin@gmail.com} \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
+
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={Naval warfare in R},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={Robin K. S.~Hankin},
+pdfkeywords={Naval warfare, stochastic model}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  In this short article I present some results.
+\end{abstract}
+
+\SweaveOpts{}
+
+
+\section{Introduction}
+
+Here I consider the following problem: navies $A,B$ deploy fleets of
+$a,b$ ships respectively and engage in battle.  At any point in time,
+the probability that the next ship to be sunk is one of $A$ is
+$b/(a+b)$.  The winner is the first to destroy all the other fleet's
+ships.  What are the probabilities of winning for general
+$a,b\in\mathbb{N}$?
+
+
+\section{Further work}
+
+We might consider the general case of $n>2$ mutually antagonistic
+fleets, and/or the case where the ships of each fleet have different
+effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
+a}{\alpha a+\beta b}, \frac{\beta b}{\alpha a+\beta b}$.
+
+
+\bibliographystyle{apalike}
+\bibliography{naval}
+
+\end{document}

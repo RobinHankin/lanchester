@@ -1,0 +1,23 @@
+To create naval_arxiv.pdf, first  use Sweave:
+
+R CMD Sweave naval_arxiv.Rnw
+
+this will create naval_arxiv.tex
+
+To process this with latex, you will need various auxiliary files such
+as arxiv.sty and orcid.pdf.  These are not under version control, you
+will have to find these on the web.  File naval.png (the hex sticker)
+is in the man/figures directory.  Copy these files to this directory,
+inst/
+
+There are two distinct versions of naval.bib, which use slightly
+different markup.
+
+Then to create naval_arxiv.pdf:
+
+pdflatex naval_arxiv
+bibtex   naval_arxiv
+pdflatex naval_arxiv
+pdflatex naval_arxiv
+
+should work.
