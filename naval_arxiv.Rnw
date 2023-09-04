@@ -98,8 +98,14 @@ The following results are immediate:
 Figure~\ref{small_ab} shows some results for small values of $(a,b)$.
 
 
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+
 \begin{figure}
-<<name = tikzFig, echo = FALSE, results = tex>>=
+<<name = small_ab, echo = FALSE, results = tex>>=
 library(tikzDevice)
 cat("\\input{small_ab_transition.tex}")
 @
@@ -108,6 +114,16 @@ Blue\label{small_ab} figures show the state of each node, red shows
 the winning probability for $A$, and teal shows transition
 probabilities}
 \end{figure}
+
+
+\begin{figure}
+<<name = singlecell, echo = FALSE, results = tex>>=
+cat("\\input{single_cell.tex}")
+@
+\caption{Single\label{single_cell2} cell analysis for diagram}
+\end{figure}
+
+
 
 
 \section{Further work}
