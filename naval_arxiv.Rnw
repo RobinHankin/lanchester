@@ -124,9 +124,10 @@ cat("\\input{single_cell.tex}")
 \end{figure}
 
 Figure~\ref{single_cell2} shows the sequence for $a=2$.  This has
-recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
-\frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution $x_n =
-\frac{2^{n+2}-(n+2)}{(n+2)!}\sim (32\pi)^{-1/2}(2/n)^{-n}n^{-5/2}$.
+recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} + \frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution
+$x_n = \frac{2^{n+2}-(n+2)}{(n+2)!}\sim (32\pi)^{-1/2}(2/n)^{-n}n^{-5/2}$.
+
+
 
 <<>>=
 f <- function(n){(2^(n+2)-(n+2))/factorial(n+2)}
@@ -159,9 +160,9 @@ Given that $p(n,n)=1/2$, it would be reasonable to seek solutions for
 $p(n,n+1)$ but this seems to be not at all easy.  However, we may
 consider a simpler game in which $p(n,n+2)=0$ and $p(n+2,n)=1$ for all
 $n\geqslant 0$; the game is considered decided if
-$\left|a-b\right|\geqslant 2$; figure~\ref{nnp1}.  We may set up a
-recurrence relation as per figure~\ref{nnp1rec} and conclude that
-$p(n-1,n)=\frac{3n-1}{4n-2}$.
+$\left|a-b\right|\geqslant 2$; figure~\ref{nnp1} shows some simple
+results.  We may set up a recurrence relation as per
+figure~\ref{nnp1_rec} and conclude that $p(n-1,n)=\frac{3n-1}{4n-2}$.
 
 \begin{figure}
 <<name = nnp1, echo = FALSE, results = tex>>=
@@ -186,9 +187,70 @@ finds itself three or more units down; figure~\ref{nnp2}.
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp2.tex}")
 @
-\caption{Precautionary surrender\label{nnp2_rec}}
+\caption{Precautionary surrender\label{nnp2}}
 \end{figure}
 
+
+\begin{figure}
+<<name = nnp1, echo = FALSE, results = tex>>=
+cat("\\input{nnp2_cell.tex}")
+@
+\caption{Precautionary surrender\label{nnp2_cell}}
+\end{figure}
+
+
+Therecurrence relation from figure~\ref{nnp2_cell} is $x_{n+1} =
+\frac{1}{2}\cdot\frac{n}{2n+1} + y\cdot\frac{n+1}{2n+1}$ with $y =
+x_n\cdot\frac{n-1}{2n} + 1\cdot\frac{n+1}{2n}$, or altogether
+
+$$
+x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}
+$$
+
+Mathematica gives us:
+
+\newcommand{\Fmn}[2]{\operatorname{{}_{#1}F_{#2}}}
+\newcommand{\ft}{\Fmn{2}{1}}
+\newcommand{\four}[4]{\frac{\Gamma\left(#1\right)\Gamma\left(#2\right)}{\Gamma\left(#3\right)\Gamma\left(#4\right)}}
+
+$$
+\frac{1}{18(n-1)}
+\left(
+12n-8- \frac{(9+i\sqrt{3})\sqrt{\pi}\Gamma(n+1)}{4^n\Gamma(n+1/2)}-2\Gamma(n+1)\widetilde{{}_2F_1}(1,n+1/2;n+2;4)
+\right)
+$$
+
+(the tilde in $\widetilde{{}_2F_1}(1,n+1/2;n+2;4)$ means the {\em
+regularized} ${}_2F_1$ Gauss hypergeometric function).  The
+combinatorical term $\frac{9+i\sqrt{3}}{2{2n\choose n\,\,n}}$ tends to
+zero quite quickly, going as $\sqrt{n}4^{-n}$ (from Stirling).  The
+hypergeometric term is harder.  First, note that it is evaluated {\em
+on} the cut line (which goes from $1+0i$ to $\infty$ along the real
+axis); the hypergeometric function is defined on the cut line as being
+continuous from below.  In any event, the imaginary component tends to
+zero as $n\longrightarrow\infty$.  But further simplification gives
+
+$$
+\frac{1}{9(n-1)}
+\left(6n-4-  \frac{9}{2{2n\choose n\,\,n}}+\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
+\right)
+$$
+
+
+
+
+<<>>=
+library("hypergeo")
+f <- function(n){
+(6*n-4-9/(2*choose(2*n,n)) + hypergeo(1,-n,3/2-n,1/4)/(2*(2*n-1))) / (9*(n-1))
+}
+f(2)-5/6
+f(3)-31/40
+f(4)-26/35
+f(5)
+f(6)
+f(100)
+@
 
 
 
