@@ -120,9 +120,51 @@ probabilities}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell.tex}")
 @
-\caption{Single\label{single_cell2} cell analysis for diagram}
+\caption{Single\label{single_cell2} cell analysis}
 \end{figure}
 
+Figure~\ref{single_cell2} shows the sequence for $a=2$.  This has
+recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
+\frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution $x_n =
+\frac{2^{n+2}-(n+2)}{(n+2)!}\sim (32\pi)^{-1/2}(2/n)^{-n}n^{-5/2}$.
+
+<<>>=
+f <- function(n){(2^(n+2)-(n+2))/factorial(n+2)}
+f(1:4)
+c(5/6,1/2,9/40)
+@
+
+
+\begin{figure}
+<<name = singlecell, echo = FALSE, results = tex>>=
+cat("\\input{single_cell3.tex}")
+@
+\caption{Single\label{single_cell3} cell analysis}
+\end{figure}
+
+
+Figure~\ref{single_cell3} gives the relation
+$x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$
+which, together with $x_1=\frac{23}{24}$, gives $x_n=\frac{54\cdot
+3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}$.  Using Stirling gives us
+that $s_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
+n^{-7/2}$.  Subsequent results seem not at all easy to obtain, and
+have no apparent pattern.  However, it might be reasonable to
+conjecture that $s_n\sim\alpha\cdot(\beta/n)^n\cdot n^{-(2r+1)}$ for
+some $\alpha,\beta$.
+
+\section{Further work}
+
+Given that $p(n,n)=1/2$, it would be reasonable to seek solutions for
+$p(n,n+1)$ but this seems to be not at all easy.  However, we may
+proceed as follows.  Consider figure~\ref{nnp1}.
+
+\begin{figure}
+<<name = nnp1, echo = FALSE, results = tex>>=
+cat("\\input{nnp1.tex}")
+@
+\caption{Single\label{single_cell3} cell analysis}
+\end{figure}
 
 
 
