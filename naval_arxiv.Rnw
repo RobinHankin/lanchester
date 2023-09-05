@@ -182,6 +182,16 @@ cat("\\input{nnp1_rec.tex}")
 
 The next natural game to consider is that a side surrenders if it
 finds itself three or more units down; figure~\ref{nnp2}.
+Figure~\ref{nnp2_cell} shows a single cell and gives us the relation
+$x_{n+1} = \frac{1}{2}\cdot\frac{n}{2n+1} + y\cdot\frac{n+1}{2n+1}$
+with $y = x_n\cdot\frac{n-1}{2n} + 1\cdot\frac{n+1}{2n}$, or
+altogether
+
+$$
+x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}
+$$
+
+
 
 \begin{figure}
 <<name = nnp1, echo = FALSE, results = tex>>=
@@ -199,13 +209,7 @@ cat("\\input{nnp2_cell.tex}")
 \end{figure}
 
 
-Therecurrence relation from figure~\ref{nnp2_cell} is $x_{n+1} =
-\frac{1}{2}\cdot\frac{n}{2n+1} + y\cdot\frac{n+1}{2n+1}$ with $y =
-x_n\cdot\frac{n-1}{2n} + 1\cdot\frac{n+1}{2n}$, or altogether
 
-$$
-x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}
-$$
 
 Mathematica gives us:
 
@@ -235,6 +239,19 @@ $$
 \left(6n-4-  \frac{9}{2{2n\choose n\,\,n}}+\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
 \right)
 $$
+
+It is worth thinking about the hypergeometric term.  We have
+
+
+$$\ft(1,-n;3/2-n;1/4)=
+1+\frac{n}{(2n-3)\cdot 2}+\frac{n(n-1)}{(2n-3)(2n-5)\cdot 2^2}+
+\frac{n(n-1)(n-2)}{(2n-3)(2n-5)(2n-7)\cdot 2^3}+\cdots
+$$
+
+I have a certain amount of numerical evidence to suggest
+that
+
+$$\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)=4/3$$
 
 
 
