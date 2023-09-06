@@ -85,8 +85,8 @@ losing, that is, achieving $(b,0)$ for some $b>0$.
 
 \section{Preliminary results}
 
-From now on, it is assumed that $a,b>0$ unless otherwise indicated.
-The following results are immediate:
+From now on, it is assumed that $a,b,n\in\mathbb{N}^+$ unless
+otherwise indicated.  The following results are immediate:
 
 \begin{itemize}
 \item $0<p(a,b)<1$, $a,b>0$
@@ -95,8 +95,23 @@ The following results are immediate:
 \item $p(n,1)=\frac{n!-1}{n!}$, $p(1,n)=\frac{1}{n!}$, $n>0$
 \end{itemize}
 
-Figure~\ref{small_ab} shows some results for small values of $(a,b)$.
+Figure~\ref{small_ab} shows some results for small values of $(a,b)$,
+and figure~\ref{single_cell2} shows the general case for $a=2$.  This
+has recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
+\frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution
 
+\begin{equation}\label{xn}
+x_n =
+\frac{2^{n+2}-(n+2)}{(n+2)!}\sim (32\pi)^{-1/2}(2/n)^{-n}n^{-5/2}.
+\end{equation}
+
+<<>>=
+f <- function(n){(2^(n+2)-(n+2))/factorial(n+2)}
+f(1:4) - c(5/6,1/2,9/40,29/360)
+@
+
+Above we see agreement between equation~\ref{xn} and
+Figure~\ref{small_ab}.
 
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{patterns}
@@ -123,17 +138,7 @@ cat("\\input{single_cell.tex}")
 \caption{Single\label{single_cell2} cell analysis}
 \end{figure}
 
-Figure~\ref{single_cell2} shows the sequence for $a=2$.  This has
-recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} + \frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution
-$x_n = \frac{2^{n+2}-(n+2)}{(n+2)!}\sim (32\pi)^{-1/2}(2/n)^{-n}n^{-5/2}$.
 
-
-
-<<>>=
-f <- function(n){(2^(n+2)-(n+2))/factorial(n+2)}
-f(1:4)
-c(5/6,1/2,9/40)
-@
 
 
 \begin{figure}
@@ -146,12 +151,18 @@ cat("\\input{single_cell3.tex}")
 
 Figure~\ref{single_cell3} gives the relation
 $x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$
-which, together with $x_1=\frac{23}{24}$, gives $x_n=\frac{54\cdot
-3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}$.  Using Stirling gives us
-that $s_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
+which, together with $x_1=\frac{23}{24}$, gives
+
+\begin{equation}\label{xn3}
+x_n=\frac{54\cdot
+3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}.
+\end{equation}
+
+Using Stirling gives us that
+$x_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
 n^{-7/2}$.  Subsequent results seem not at all easy to obtain, and
 have no apparent pattern.  However, it might be reasonable to
-conjecture that $s_n\sim\alpha\cdot(\beta/n)^n\cdot n^{-(2r+1)}$ for
+conjecture that $s_n\sim\alpha\cdot(\beta/n)^n\cdot n^{-(r+1/2)}$ for
 some $\alpha,\beta$.
 
 \section{The restricted game: precautionary surrender}
@@ -217,57 +228,73 @@ Mathematica gives us:
 \newcommand{\ft}{\Fmn{2}{1}}
 \newcommand{\four}[4]{\frac{\Gamma\left(#1\right)\Gamma\left(#2\right)}{\Gamma\left(#3\right)\Gamma\left(#4\right)}}
 
-$$
+\begin{equation}\label{mathematica}
 \frac{1}{18(n-1)}
 \left(
 12n-8- \frac{(9+i\sqrt{3})\sqrt{\pi}\Gamma(n+1)}{4^n\Gamma(n+1/2)}-2\Gamma(n+1)\widetilde{{}_2F_1}(1,n+1/2;n+2;4)
 \right)
-$$
+\end{equation}
 
 (the tilde in $\widetilde{{}_2F_1}(1,n+1/2;n+2;4)$ means the {\em
 regularized} ${}_2F_1$ Gauss hypergeometric function).  The
-combinatorical term $\frac{9+i\sqrt{3}}{2{2n\choose n\,\,n}}$ tends to
-zero quite quickly, going as $\sqrt{n}4^{-n}$ (from Stirling).  The
-hypergeometric term is harder.  First, note that it is evaluated {\em
-on} the cut line (which goes from $1+0i$ to $\infty$ along the real
-axis); the hypergeometric function is defined on the cut line as being
-continuous from below.  In any event, the imaginary component tends to
-zero as $n\longrightarrow\infty$.  But further simplification gives
+hypergeometric term is problematic.  First, note that it is evaluated
+{\em on} the cut line (which goes from $1+0i$ to $\infty$ along the
+real axis); the hypergeometric function is defined on the cut line as
+being continuous from below.  In any event, the imaginary component
+tends to zero as $n\longrightarrow\infty$.  Equation 15.3.7 of AMS-55, viz
 
-$$
+\begin{eqnarray}\label{ams15.3.7}
+\ft\left(a,b;c;z\right) = \four{c}{b-a}{b}{c-a}\left(-z\right)^{-a}\ft\left(a,1-c+a;1-b+a;\frac{1}{z}\right)
+\nonumber\\
++\four{c}{a-b}{a}{c-b}\left(-z\right)^{-b}\ft\left(b,1-c+b;1-a+b;\frac{1}{z}\right)
+\end{eqnarray}
+
+May be used to ensure that $\ft()$ is only evaluated inside the unit
+circle, thereby avoiding the need to consider cut lines.  This leads
+to, after simplification:
+
+\begin{equation}\label{simplifiedversion}
 \frac{1}{9(n-1)}
 \left(6n-4-  \frac{9}{2{2n\choose n\,\,n}}+\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
 \right)
-$$
+\end{equation}
 
-It is worth thinking about the hypergeometric term.  We have
-
-
-$$\ft(1,-n;3/2-n;1/4)=
-1+\frac{n}{(2n-3)\cdot 2}+\frac{n(n-1)}{(2n-3)(2n-5)\cdot 2^2}+
-\frac{n(n-1)(n-2)}{(2n-3)(2n-5)(2n-7)\cdot 2^3}+\cdots
-$$
-
-I have a certain amount of numerical evidence to suggest
-that
-
-$$\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)=4/3$$
-
-
-
+We may verify that equation~\ref{simplifiedversion} is correct numerically:
 
 <<>>=
 library("hypergeo")
 f <- function(n){
-(6*n-4-9/(2*choose(2*n,n)) + hypergeo(1,-n,3/2-n,1/4)/(2*(2*n-1))) / (9*(n-1))
+(6*n-4-9/(2*choose(2*n,n)) + Re(hypergeo(1,-n,3/2-n,1/4)/(2*(2*n-1)))) / (9*(n-1))
 }
-f(2)-5/6
-f(3)-31/40
-f(4)-26/35
-f(5)
-f(6)
-f(100)
+f(2:4) - c(5/6, 31/40, 26/35)
 @
+
+
+Above we see agreement between equation~\ref{simplifiedversion} and
+figure~\ref{small_ab}.  I have a certain amount of numerical evidence
+to suggest that $\ft(1,-n;3/2-n;1/4)=\frac{4}{3} + \frac{2}{3}n^{-1} +
+\frac{4}{3}n^{-2} + \mathcal{O}(n^{-3})$ (figure~\ref{hypergeoasymp}),
+although I do not have an algebraic proof that
+$\displaystyle\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)$ even
+exists.
+
+\begin{figure}[htbp]
+  \begin{center}
+<<label=asymptot,fig=TRUE,echo=TRUE>>=
+library("hypergeo")
+f1 <- function(n){Re(hypergeo(1,-n,3/2-n,1/4))}
+f2 <- function(n){4*(1+0.5/n+1/n^2)/3 }
+n <- 10:500
+plot(n,log(abs(f1(n)-f2(n))))
+@
+
+\caption{Difference\label{hypergeoasymp} between $\ft(1,-n;3/2-n;1/4)$
+and $4(1+1/2n+1/n^2)/3$ for $10\leqslant n\leqslant 500$.  We see that
+the exact and approximate results differ by about $e^{-14}\simeq
+10^{-6}$}
+\end{center}
+\end{figure}
+
 
 
 
