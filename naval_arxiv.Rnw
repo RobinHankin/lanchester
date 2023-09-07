@@ -135,7 +135,8 @@ probabilities}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell.tex}")
 @
-\caption{Single\label{single_cell2} cell analysis}
+\caption{Single\label{single_cell2} cell analysis, colour coding as
+for figure~\ref{small_ab}}
 \end{figure}
 
 
