@@ -56,7 +56,14 @@ pdfkeywords={Naval warfare, stochastic model}
 \maketitle
 
 \begin{abstract}
-  In this short article I present some results.
+
+  In this short article I investigate an acyclic Markov chain
+  described by a bivariate recurrence relation.  It has direct
+  application to military conflict; the preferred interpretation is
+  two fleets of battleships, each trying to sink the other.  I present
+  some theoretical and numerical results and suggest lines for further
+  work.
+
 \end{abstract}
 
 \SweaveOpts{}
