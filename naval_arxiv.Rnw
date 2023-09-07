@@ -155,35 +155,35 @@ $x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$
 which, together with $x_1=\frac{23}{24}$, gives
 
 \begin{equation}\label{xn3}
-x_n=\frac{54\cdot
+p(3,n)=x_n=\frac{54\cdot
 3^n-16(n+3)\cdot 2^n+(n+3)(n+2)}{2(n+3)!}.
 \end{equation}
 
-Using Stirling gives us that
-$x_n\sim\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
+Stirling shows that this is
+${\sim}\frac{27}{\sqrt{2\pi}}\left(\frac{3e}{n}\right)^n\cdot
 n^{-7/2}$.  Subsequent results seem not at all easy to obtain, and
 have no apparent pattern.  However, it might be reasonable to
-conjecture that $s_n\sim\alpha\cdot(\beta/n)^n\cdot n^{-(r+1/2)}$ for
-some $\alpha,\beta$.
+conjecture that $p(n,r)\sim\alpha\cdot(\beta/n)^n\cdot n^{-(r+1/2)}$
+for some $\alpha,\beta$.
 
 \section{The restricted game: precautionary surrender}
 
-Given that $p(n,n)=1/2$, it would be reasonable to seek solutions for
-$p(n,n+1)$ but this seems to be not at all easy.  However, we may
-consider a simpler game in which $p(n,n+2)=0$ and $p(n+2,n)=1$ for all
-$n\geqslant 0$; the game is considered decided if
-$\left|a-b\right|\geqslant 2$; figure~\ref{nnp1} shows some simple
-results.  One interpretation might be that a navy surrenders if it
-falls more than two units behind its opponent.  The situation is not
-quite isomorphic to that of tennis at deuce because the restricted
-game has a pre-specified length, while a tennis game has no upper
-number of points.  From figure~\ref{nnp1_rec} we conclude that
-$p(n-1,n)=\frac{3n-1}{4n-2}$.
+Given that $p(n,n)=1/2$, one might seek solutions for $p(n,n+1)$ but
+this seems to be not at all easy.  However, we may consider a simpler
+game in which $p(n,n+2)=0$ and $p(n+2,n)=1$ for all $n\geqslant 0$;
+the game is considered decided if $\left|a-b\right|\geqslant 2$;
+figure~\ref{nnp1} shows some simple results.  One interpretation might
+be that a navy surrenders if it falls more than two units behind its
+opponent.  The situation is not quite isomorphic to that of tennis at
+deuce because the restricted game has a pre-specified length, while a
+tennis game has no upper number of points.  From figure~\ref{nnp1_rec}
+we conclude that
 
 \begin{equation}
 p(n-1,n)=\begin{cases}
-\frac{3n-1}{4n-2} & n>1\\
-0 & n=1\end{cases}
+\frac{3n-1}{4n-2} &        n>1  \\
+0                 & \mbox{$n=1$.}
+\end{cases}
 \end{equation}
 
 \begin{figure}
@@ -274,11 +274,12 @@ to, after simplification:
 p(n,n-1)=
 \frac{1}{9(n-1)}
 \left(6n-4-  \frac{9}{2{2n\choose n\,\,n}}+\frac{\ft(1,-n;3/2-n;1/4)}{2(2n-1)}
-\right),\qquad n>1
+\right),\qquad n>1.
 \end{equation}
 
 We may verify that equation~\ref{simplifiedversion} is correct
-numerically, using the {\tt hypergeo} package~\citep{hankin2015}:
+numerically, using the R computer language~\citep{rcore2023} and the
+{\tt hypergeo} package~\citep{hankin2015}:
 
 <<>>=
 library("hypergeo")
@@ -293,9 +294,9 @@ Above we see agreement between equation~\ref{simplifiedversion} and
 figure~\ref{small_ab}.  I have a certain amount of numerical evidence
 to suggest that $\ft(1,-n;3/2-n;1/4)=\frac{4}{3} + \frac{2}{3}n^{-1} +
 \frac{4}{3}n^{-2} + \mathcal{O}(n^{-3})$ (figure~\ref{hypergeoasymp}),
-although I do not have an algebraic proof that
+although an algebraic proof that
 $\displaystyle\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)$ even
-exists.
+exists is not available.
 
 \begin{figure}[htbp]
   \begin{center}
