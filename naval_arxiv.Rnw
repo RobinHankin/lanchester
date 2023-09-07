@@ -251,12 +251,14 @@ Mathematica gives us:
 \end{equation}
 
 (the tilde in $\widetilde{{}_2F_1}(1,n+1/2;n+2;4)$ means the {\em
-regularized} ${}_2F_1$ Gauss hypergeometric function).  The
-hypergeometric term is problematic.  First, note that it is evaluated
-{\em on} the cut line (which goes from $1+0i$ to $\infty$ along the
-real axis); the hypergeometric function is defined on the cut line as
-being continuous from below.  In any event, the imaginary component
-tends to zero as $n\longrightarrow\infty$.  Equation 15.3.7 of AMS-55, viz
+regularized} ${}_2F_1$ Gauss hypergeometric
+function~\citep{abramowitz1965}).  The hypergeometric term is
+problematic.  First, note that it is evaluated {\em on} the cut line
+(which goes from $1+0i$ to $\infty$ along the real axis); the
+hypergeometric function is defined on the cut line as being continuous
+from below.  In any event, the imaginary component tends to zero as
+$n\longrightarrow\infty$.  Equation 15.3.7 of~\citep{abramowitz1965},
+viz
 
 \begin{eqnarray*}\label{ams15.3.7}
 \ft\left(a,b;c;z\right) = \four{c}{b-a}{b}{c-a}\left(-z\right)^{-a}\ft\left(a,1-c+a;1-b+a;\frac{1}{z}\right)
@@ -275,7 +277,8 @@ p(n,n-1)=
 \right),\qquad n>1
 \end{equation}
 
-We may verify that equation~\ref{simplifiedversion} is correct numerically:
+We may verify that equation~\ref{simplifiedversion} is correct
+numerically, using the {\tt hypergeo} package~\citep{hankin2015}:
 
 <<>>=
 library("hypergeo")
