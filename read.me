@@ -1,4 +1,4 @@
-To create naval_arxiv.pdf, first  use Sweave:
+To create naval_arxiv.pdf, type "make".  This will execute
 
 R CMD Sweave naval_arxiv.Rnw
 
@@ -10,14 +10,11 @@ will have to find these on the web.  File naval.png (the hex sticker)
 is in the man/figures directory.  Copy these files to this directory,
 inst/
 
-There are two distinct versions of naval.bib, which use slightly
-different markup.
+File naval_warfare.Rmd includes some algebra used in obtaining one of
+the results; but note carefully that any inline tikz diagrams are
+obsolete.  File naval_arxiv.Rnw uses \include{} to import tex files
+[e.g. nnp2.tex].  These are under version control, and should be
+regarded as the canonical version.
 
-Then to create naval_arxiv.pdf:
 
-pdflatex naval_arxiv
-bibtex   naval_arxiv
-pdflatex naval_arxiv
-pdflatex naval_arxiv
 
-should work.
