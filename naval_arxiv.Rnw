@@ -324,10 +324,32 @@ the exact and approximate results differ by about $e^{-14}\simeq
 \end{figure}
 
 
+The case for precautionary surrender on being four or more units
+behind is shown in figure~\ref{nnp3_cell}.  The recurrence would be
+
+\begin{equation}
+\begin{split}
+p(n,n-1) =\label{fourbehind}
+x_n &= \frac{n-1}{2n}\cdot y + \frac{2n+1}{2n}\cdot z\\
+y   &= \frac{n-1}{2n-1}\cdot\left(\frac{1}{2}\right) + \frac{n}{2n-1}\cdot x_n\\
+z   &= \frac{n+1}{2n-1}\cdot x_n +\frac{n-2}{2n-1}\cdot 1.
+\end{split}
+\end{equation}
+
+However, equation~\ref{fourbehind} does not appear to have an analytic
+solution (at least, not a useful one).
+
+
+\begin{figure}
+<<name = nnp1, echo = FALSE, results = tex>>=
+cat("\\input{nnp3_cell.tex}")
+@
+\caption{Precautionary surrender on being four or more units
+behind,\label{nnp3_cell} $n>1$}
+\end{figure}
 
 
 \section{Further work}
-
 We might consider the general case of $n>2$ mutually antagonistic
 fleets, and/or the case where the ships of each fleet have different
 effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
