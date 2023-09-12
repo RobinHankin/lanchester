@@ -106,8 +106,8 @@ p(r,b) = \begin{cases}
 $$
 
 
-\cite{zhang2023,fox2010,lanchester1956}
-\cite{zhang2023,fox2010,lanchester1956}
+\cite{zhang2023,fox2010,lanchester1956,ancker1987}
+
 
 The preferred interpretation of the problem is as follows: navies
 $R,B$ deploy fleets of $r,b$ ships respectively and engage in battle.
