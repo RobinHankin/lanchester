@@ -16,13 +16,13 @@
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}		% Can be removed after putting your text content
 \usepackage{graphicx}
-\usepackage[numbers]{natbib}
+\usepackage[round]{natbib}
 \usepackage{doi}
 \usepackage{wrapfig}
 
 
 
-\title{Naval warfare in R}
+\title{Discrete Lanchester attrition models}
 
 %\date{September 9, 1985}	% Here you can change the date presented in the paper title
 %\date{} 					% Or removing it
@@ -59,19 +59,53 @@ pdfkeywords={Naval warfare, stochastic model}
 
 \begin{abstract}
 
-  In this short article I investigate an acyclic Markov chain
-  described by a bivariate recurrence relation.  It has direct
-  application to military conflict; the preferred interpretation is
-  two fleets of battleships, each trying to sink the other.  I present
-  some theoretical and numerical results and suggest lines for further
-  work.
+  In this short article I investigate a discrete Lanchester-type
+  attrition model, described by a bivariate recurrence relation.  It
+  has direct application to military conflict; the preferred
+  interpretation is two fleets of battleships, each trying to sink the
+  other.  I present some theoretical and numerical results and suggest
+  lines for further work.
 
 \end{abstract}
 
 \SweaveOpts{}
 
-
 \section{Introduction}
+
+
+Motivated by the analysis of modern and ancient military strategy,
+\citet{lanchester1956} set out a simple model for two mutually hostile
+forces, which he styled ``red'' and ``blue'', of strength $a=a(t)$ and
+$b=b(t)$ respectively:
+
+\begin{equation}\label{lanchester}
+\begin{split}
+\frac{da}{dt}  &= -bk\\
+\frac{db}{dt}  &= -ac.
+\end{split}
+\end{equation}
+
+Here, $c$ and $k$ are constants representing the military strength of
+the individual units; $c=k$ if the fighting values of the individual
+units of the force are equal.  Lanchester went on to study the
+properties of this system and considered British naval tactcics in the
+eighteenth and nineteenth centuries in the light of his equations.
+Writing in 1974, \citeauthor{karr1974} went on to give analytical
+solutions to equations of this, type, with equation~\ref{lanchester}
+having solution
+
+\begin{equation}\label{lanchester}
+\begin{split}
+a(t) &= a_0\cosh\lambda t) -\alpha b_0\sinh\lambda t\\
+a(t) &= b_0\cosh\lambda t) -\alpha^{-1}a_0\sinh\lambda t
+\end{split}
+\end{equation}
+
+where $\lambda=\sqrt{ck}$, $\alpha=\sqrt{c/k}$, and $(a_0,b_0)$ are
+the initial fighting strengths of the two sides.  went on to consider
+a number of discrete versions of this, one of which was a
+generalization of that considered here.  However,
+\citeauthor{karr1974} did not solve this equation explicitly.
 
 Here I consider the following recursive definition for $p(a,b)$,
 $a,b\in\mathbb{N}\backslash (0,0)$:
@@ -83,6 +117,12 @@ p(a,b) = \begin{cases}
 \frac{a}{a+b}\cdot p(a,b-1) + \frac{b}{a+b}\cdot p(a-1,b)  & a,b\geqslant 1
 \end{cases}
 $$
+
+
+\cite{zhang2023,fox2010,lanchester1956}
+\cite{zhang2023,fox2010,lanchester1956}
+
+
 
 
 The preferred interpretation of the problem is as follows: navies
@@ -369,7 +409,7 @@ effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
 a}{\alpha a+\beta b}, \frac{\beta b}{\alpha a+\beta b}$.
 
 
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 \bibliography{naval}
 
 \end{document}
