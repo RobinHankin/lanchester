@@ -1,10 +1,10 @@
 all:
-	R CMD Sweave naval_arxiv.Rnw
-	pdflatex naval_arxiv
-	bibtex naval_arxiv
-	pdflatex naval_arxiv
-	pdflatex naval_arxiv
+	R CMD Sweave lanchester_arxiv.Rnw
+	pdflatex lanchester_arxiv
+	bibtex lanchester_arxiv
+	pdflatex lanchester_arxiv
+	pdflatex lanchester_arxiv
 
 clean:
-	rm -f  *.aux *.log *.out *.bbl *.blg *.Rout naval_arxiv.tex
+	rm -f  *.aux *.log *.out *.bbl *.blg *.Rout lanchester_arxiv.tex
 
