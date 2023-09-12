@@ -1,5 +1,7 @@
 \begin{tikzpicture}[line cap=round,line join=round,x=4cm,y=4cm]
 
+\newcommand{\state}[2]{$(\textcolor{red}{#1},\textcolor{blue}{#2})$}
+\newcommand{\probs}[2]{$\left\langle\textcolor{red}{#1};\textcolor{blue}{#2}\right\rangle$}
 
 \fill (1,0) circle[radius=6pt];
 \fill (2,0) circle[radius=6pt];
@@ -48,10 +50,7 @@
 \draw[line width=0.5mm] (4,3) -- (4,2) node[sloped, pos=0.5, allow upside down]{\arrowIn};
 
 
-\newcommand{\state}[2]{$(\textcolor{red}{#1},\textcolor{blue}{#2})$}
-
 \node at (1.2, 0.1)  {\state{1}{0}};
-
 \node at (2.2, 0.1)  {\state{2}{0}};
 \node at (3.2, 0.1)  {\state{3}{0}};
 \node at (4.2, 0.1)  {\state{4}{0}};
@@ -101,23 +100,23 @@
 \node[text=teal] at (3.85, 2.5)  {$\frac{4}{7}$};
 
 
-\node[text=red] at ( 0.8, 0.1)  {$1$};
-\node[text=red] at ( 1.8, 0.1)  {$1$};
-\node[text=red] at ( 2.8, 0.1)  {$1$};
-\node[text=red] at ( 3.8, 0.1)  {$1$};
-\node[text=red] at (-0.2, 1.1)  {$0$};
-\node[text=red] at ( 0.8, 1.1)  {$\frac{1}{2}$};
-\node[text=red] at ( 1.8, 1.1)  {$\frac{5}{6}$};
-\node[text=red] at ( 2.8, 1.1)  {$\frac{23}{24}$};
-\node[text=red] at ( 3.8, 1.1)  {$\frac{119}{120}$};
-\node[text=red] at (-0.2, 2.1)  {$0$};
-\node[text=red] at ( 0.8, 2.1)  {$\frac{1}{6}$};
-\node[text=red] at ( 1.8, 2.1)  {$\frac{1}{2}$};
-\node[text=red] at ( 2.8, 2.1)  {$\frac{31}{40}$};
-\node[text=red] at ( 3.8, 2.1)  {$\frac{331}{360}$};
-\node[text=red] at (-0.2, 3.1)  {$0$};
-\node[text=red] at ( 0.8, 3.1)  {$\frac{1}{24}$};
-\node[text=red] at ( 1.8, 3.1)  {$\frac{9}{40}$};
-\node[text=red] at ( 2.8, 3.1)  {$\frac{1}{2}$};
-\node[text=red] at ( 3.8, 3.1)  {$\frac{233}{315}$};
+\node at ( 0.85, -0.1){\probs{1}{0}};
+\node at ( 1.85, -0.1){\probs{1}{0}};
+\node at ( 2.85, -0.1){\probs{1}{0}};
+\node at ( 3.85, -0.1){\probs{1}{0}};
+\node at (-0.15,  0.9){\probs{0}{1}};
+\node at ( 0.8 ,  0.9){\probs{\frac{1}{2}}{\frac{1}{2}}};
+\node at ( 1.8 ,  0.9){\probs{\frac{5}{6}}{\frac{1}{6}}};
+\node at ( 2.8 ,  0.9){\probs{\frac{23}{24}}{\frac{1}{24}}};
+\node at ( 3.8 ,  0.9){\probs{\frac{119}{120}}{\frac{1}{120}}};
+\node at (-0.15,  1.9){\probs{0}{1}};
+\node at ( 0.8 ,  1.9){\probs{\frac{1}{6}}{\frac{5}{6}}};
+\node at ( 1.8 ,  1.9){\probs{\frac{1}{2}}{\frac{1}{2}}};
+\node at ( 2.8 ,  1.9){\probs{\frac{31}{40}}{\frac{9}{40}}};
+\node at ( 3.8 ,  1.9){\probs{\frac{331}{360}}{\frac{29}{360}}};
+\node at (-0.15,  2.9){\probs{0}{1}};
+\node at ( 0.8 ,  2.9){\probs{\frac{1}{24}}{\frac{23}{24}}};
+\node at ( 1.8 ,  2.9){\probs{\frac{9}{40}}{\frac{31}{40}}};
+\node at ( 2.8 ,  2.9){\probs{\frac{1}{2}}{\frac{1}{2}}};
+\node at ( 3.8 ,  2.9){\probs{\frac{233}{315}}{\frac{82}{315}}};
 \end{tikzpicture}
