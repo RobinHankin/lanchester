@@ -171,6 +171,7 @@ which, together with $x_1=\frac{23}{24}$, gives
 }
 
 \begin{figure}
+\begin{center}
 <<name = small_ab, echo = FALSE, results = tex>>=
 library(tikzDevice)
 cat("\\input{small_ab_transition.tex}")
@@ -184,22 +185,27 @@ red and blue victory; thus
 $\left\langle\textcolor{red}{\frac{233}{315}},\textcolor{blue}{\frac{82}{315}}\right\rangle$
 means that the probability of (eventual) red victory is
 $\frac{233}{315}$ and that of blue victory $\frac{82}{315}$}
+\end{center}
 \end{figure}
 
 \begin{figure}
+\begin{center}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell.tex}")
 @
 \caption{Single\label{single_cell2} cell analysis, colour coding as
 for figure~\ref{small_ab}}
+\end{center}
 \end{figure}
 
 
 \begin{figure}
+\begin{center}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell3.tex}")
 @
 \caption{Single\label{single_cell3} cell analysis}
+\end{center}
 \end{figure}
 
 \begin{equation}\label{xn3}
@@ -234,21 +240,23 @@ p(n-1,n)=\begin{cases}
 \end{equation}
 
 \begin{figure}
+\begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp1.tex}")
 @
-
 \caption{Win probabilities for the restricted game: \label{nnp1} being
 two or more units behind means surrender}
-
+\end{center}
 \end{figure}
 
 
 \begin{figure}
+\begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp1_rec.tex}")
 @
 \caption{Single\label{nnp1_rec} cell analysis for the restricted game, $n>1$}
+\end{center}
 \end{figure}
 
 The next natural game to consider is that a navy surrenders if it
@@ -265,20 +273,24 @@ x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}.
 
 
 \begin{figure}
+\begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp2.tex}")
 @
 \caption{Restricted game: \label{nnp2} being {\em three} or more
 behind means surrender}
+\end{center}
 \end{figure}
 
 
 \begin{figure}
+\begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp2_cell.tex}")
 @
 \caption{Precautionary surrender on being three or more units
 behind,\label{nnp2_cell} $n>1$}
+\end{center}
 \end{figure}
 
 
@@ -404,11 +416,13 @@ solution (at least, not a useful one).
 
 
 \begin{figure}
+\begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp3_cell.tex}")
 @
 \caption{Precautionary surrender on being four or more units
 behind,\label{nnp3_cell} $n>1$}
+\end{center}
 \end{figure}
 
 
