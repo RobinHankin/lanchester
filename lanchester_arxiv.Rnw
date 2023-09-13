@@ -152,9 +152,7 @@ has recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
 \begin{equation}\label{xn}
 p(2,2+n) = x_n =
 \frac{2^{n+2}-(n+2)}{(n+2)!}
-\sim 
 \end{equation}
-
 
 leading to
 \begin{equation}\label{xnp2}
@@ -231,10 +229,10 @@ p(3,n)=x_n=\frac{54\cdot
 \sim\frac{27}{\sqrt{2\pi n^7}}\left(\frac{3e}{n}\right)^n.
 \end{equation}
 
-Subsequent results seem not at all easy to obtain, and
-have no apparent pattern.  However, it might be reasonable to
-conjecture that $p(n,r)\sim\alpha\cdot(\beta/n)^n\cdot n^{-(r+1/2)}$
-for some $\alpha,\beta$.
+Subsequent results seem not at all easy to obtain, and have no
+apparent pattern.  However, it might be reasonable to conjecture that
+$p(n,b)\sim\alpha\cdot(\beta/n)^n\cdot n^{-(b+1/2)}$ for some
+$\alpha,\beta$ as $n\longrightarrow\infty$.
 
 \subsection{The restricted game: precautionary surrender}
 
