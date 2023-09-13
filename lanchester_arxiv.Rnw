@@ -144,9 +144,75 @@ otherwise indicated.  The following results are immediate:
 \section{Results}
 
 
-Figure~\ref{small_ab} shows some results for small values of $(r,b)$,
-and figure~\ref{single_cell2} shows the general case for $r=2$.  This
-has recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
+Figure~\ref{small_ab} shows a graphical representation of
+equations~\ref{defining} together with win probabilities for small
+values of $(r,b)$; and figures~\ref{probrounda}
+and~\ref{logoddsratioredvsblue} show win probabilities for a wider
+range of initial states.
+
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\newcommand{\arrowIn}{
+\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
+}
+
+\begin{figure}
+\begin{center}
+<<name = small_ab, echo = FALSE, results = tex>>=
+library(tikzDevice)
+cat("\\input{small_ab_transition.tex}")
+@
+\caption{Transition diagram for $(r,b)\preccurlyeq(4,3)$.
+Red\label{small_ab} figures refer to the red forces and blue to the
+blue forces.  Round brackets indicate the state of each node; thus
+$(\textcolor{red}{3},\textcolor{blue}{4})$ means 3 red and 4 blue
+extant fighting units.  Angle brackets indicate the probabilities for
+red and blue victory; thus
+$\left\langle\textcolor{red}{\frac{233}{315}},\textcolor{blue}{\frac{82}{315}}\right\rangle$
+means that the probability of (eventual) red victory is
+$\frac{233}{315}$ and that of blue victory $\frac{82}{315}$.  Teal
+numbers indicate transition probabilities
+$\frac{r}{r+b},\frac{b}{r+b}$; large dots show absorbing states}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+<<label=calculateA,cache=TRUE,echo=FALSE>>=
+n <- 50
+A <- matrix(NA,n,n)
+A[1,] <- 1/factorial(seq_len(n) + 1)
+A[,1] <- 1-A[1,]
+for(i in 2:n){
+  for(j in 2:n){
+    A[i,j] <- i/(i+j)*A[i,j-1] + j/(i+j)*A[i-1,j]
+  }
+}
+dimnames(A) <- list(red=seq_len(nrow(A)),blue=seq_len(ncol(A)))
+print(round(A,3)[1:9,1:9])
+@
+\caption{probs\label{probrounda}}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+<<label=plotlogodds,fig=TRUE,echo=FALSE>>=
+O <- log(A)-log(1-A)
+par(pty="s")
+n <- seq_len(20)
+contour(n,n,O[n,n],asp=1,levels=c(-10:10,c(-30,-20,-15,15,20,30)),
+   xlab="red strength",ylab="blue strength",main="Log-odds of red victory")
+@
+\caption{log-odds \label{logoddsratioredvsblue} ratio ${\log}{\left(\frac{p}{1-p}\right)}$ for red victory as a
+function of red and blue strength $1(1)20$}
+\end{center}
+\end{figure}
+
+
+Figure~\ref{single_cell2} shows the general case for $r=2$.  This has
+recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
 \frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution
 
 \begin{equation}\label{xn}
@@ -177,31 +243,7 @@ Figure~\ref{small_ab}.  Proceeding to consider $r=3$
 $x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$
 which, together with $x_1=\frac{23}{24}$, gives
 
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{patterns}
-\newcommand{\arrowIn}{
-\tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
-}
 
-\begin{figure}
-\begin{center}
-<<name = small_ab, echo = FALSE, results = tex>>=
-library(tikzDevice)
-cat("\\input{small_ab_transition.tex}")
-@
-\caption{Transition diagram for $(r,b)\preccurlyeq(4,3)$.
-Red\label{small_ab} figures refer to the red forces and blue to the
-blue forces.  Round brackets indicate the state of each node; thus
-$(\textcolor{red}{3},\textcolor{blue}{4})$ means 3 red and 4 blue
-extant fighting units.  Angle brackets indicate the probabilities for
-red and blue victory; thus
-$\left\langle\textcolor{red}{\frac{233}{315}},\textcolor{blue}{\frac{82}{315}}\right\rangle$
-means that the probability of (eventual) red victory is
-$\frac{233}{315}$ and that of blue victory $\frac{82}{315}$.  Teal
-numbers indicate transition probabilities
-$\frac{r}{r+b},\frac{b}{r+b}$; large dots show absorbing states}
-\end{center}
-\end{figure}
 
 \begin{figure}
 \begin{center}
@@ -440,16 +482,32 @@ behind,\label{nnp3_cell} $n>1$}
 \end{figure}
 
 
-\section{Further work} One natural generalization, of interest all the
-way back to Lanchester's seminal 1956 work, is to consider the case
-where the ships of each fleet have different effectivenesses
-$\alpha,\beta$, leading to probabilities $\frac{\alpha r}{\alpha
-r+\beta b}, \frac{\beta b}{\alpha r+\beta b}$.  This case seems not at
-all easy to consider beyond a diagram analogous to
-figure~\ref{small_ab} for a few special cases.  Restricting attention
-to equal fighting strengths, one might observe that not only is the
-eventual winner a random variable, but so too is the strength of the
-remaining fleet at victory.  Investigating the probability mass
+\section{Further work}
+
+Military interpretations of discrete Lanchester models would suggest
+that, for given $n$ and $\alpha$, finding the minimum value of $a$
+such that $p(n,n+a)\geqslant\alpha$.  One would then be seeking the
+minimal number of additional fighting units to secure victory with a
+given probability.  Figure~\ref{logoddsratioredvsblue} goes some way
+to answering this, but asymptotic results would be interesting.
+
+Such questions give rise to a natural generalization of colonel
+Blotto-type zero-sum games: how might one allocate resources among
+battlefields to maximize the expected number of victories?  Further,
+one might regard one's combat units as vulnerable targets rather than
+offensive assets; and consider their placement from the perspective of
+liability allocation games~\citep{hankin2020}.
+
+One natural generalization, of interest all the way back to
+Lanchester's seminal 1956 work, is to consider the case where the
+ships of each fleet have different effectivenesses $\alpha,\beta$,
+leading to probabilities $\frac{\alpha r}{\alpha r+\beta b},
+\frac{\beta b}{\alpha r+\beta b}$.  This case seems not at all easy to
+consider beyond producing diagrams analogous to figures~\ref{small_ab}
+and~\ref{logoddsratioredvsblue} for a few special cases.  Restricting
+attention to equal fighting strengths, one might observe that not only
+is the eventual winner a random variable, but so too is the strength
+of the remaining fleet at victory.  Investigating the probability mass
 function for this might be interesting.
 
 
