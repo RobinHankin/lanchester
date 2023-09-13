@@ -1,12 +1,18 @@
-\newcommand{\half}{$\frac{1}{2}$}
-
 \begin{tikzpicture}[line cap=round,line join=round,x=3cm,y=3cm]
+
+\newcommand{\half}{$\frac{1}{2}$}
+\newcommand{\state}[2]{$(\textcolor{red}{#1},\textcolor{blue}{#2})$}
+\newcommand{\probs}[2]{$\left\langle\textcolor{red}{#1};\textcolor{blue}{#2}\right\rangle$}
 
 \draw[line width=0.5mm] ( 1,1) -- ( 0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
 \draw[line width=0.5mm] (-1,1) -- ( 0,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
 \draw[line width=0.5mm] ( 0,2) -- ( 1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
 \draw[line width=0.5mm] ( 0,2) -- (-1,1) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
-\draw[line width=0.5mm] ( 1,1) -- ( 2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn}; 
+\draw[line width=0.5mm] ( 1,1) -- ( 2,0) node[sloped, pos=0.5, allow upside down]{\arrowIn};
+
+\draw[line width=0.1mm] (0,1.6) -- (0,2) ;
+\draw[line width=0.1mm] (1,0.7) -- (1,1) ;
+\draw[line width=0.1mm] (2,0.3) -- (2,0) ;
 
 \fill ( 0,0) circle[radius=3pt];
 \fill (-1,1) circle[radius=3pt];
@@ -14,18 +20,17 @@
 \fill ( 0,2) circle[radius=3pt];
 \fill ( 2,0) circle[radius=6pt];
 
+\node at ( 0   , -0.1){\probs{x_{n}}{1-x_{n}}};
+\node at (-1   , 0.8) {\probs{\frac{1}{2}}{\frac{1}{2}}};
+\node at ( 0   , 1.5) {\probs{x_{n+1}}{1-x_{n+1}}};
+\node at ( 1 , 1.3) {\probs{y}{1-y}};
+\node at ( 2   , -0.2) {\probs{1}{0}};
 
-\node[text=red ] at ( 0.6 , 0.1) {$x_{n}=p(n,n-1)$};
-\node[text=red ] at (-1   , 1.1) {$\frac{1}{2}$};
-\node[text=red ] at ( 0   , 2.1) {$x_{n+1}=p(n+1,n)$};
-\node[text=red ] at ( 1.5 , 1.1) {$y=p(n+1,n-1)$};
-\node[text=red ] at ( 2   , 0.2) {$1$};
-
-\node[text=blue] at ( 0  , -0.15) {$(n,n-1)$};
-\node[text=blue] at ( 2  , -0.15) {$(n+2,n-2)$};
-\node[text=blue] at ( 0  ,  1.6 ) {$(n+1,n)$};
-\node[text=blue] at (-1 ,   0.8 ) {$(n,n)$};
-\node[text=blue] at ( 1 ,   0.6 ) {$(n+1,n-1)$};
+\node at ( 0  , 0.3) {\state{n}{n-1}};
+\node at ( 2  , 0.4) {\state{n+2}{n-2}};
+\node at ( 0  ,  2.1 ) {\state{n+1}{n}};
+\node at (-1 ,   1.2 ) {\state{n}{n}};
+\node at ( 1 ,   0.6 ) {\state{n+1}{n-1}};
 
 \node[text=teal] at (-0.5 , 1.7) {$\frac{n}{2n+1}$};
 \node[text=teal] at ( 0.5 , 1.7) {$\frac{n+1}{2n+1}$};
