@@ -488,8 +488,11 @@ Military interpretations of discrete Lanchester models would suggest
 that, for given $n$ and $\alpha$, finding the minimum value of $a$
 such that $p(n,n+a)\geqslant\alpha$.  One would then be seeking the
 minimal number of additional fighting units to secure victory with a
-given probability.  Figure~\ref{logoddsratioredvsblue} goes some way
-to answering this, but asymptotic results would be interesting.
+given probability.  In general, one might hope to discover discrete
+analogues of Lanchester's N-square
+law~\cite{lanchester1956,lepingwell1987}.
+Figure~\ref{logoddsratioredvsblue} goes some way to answering this,
+but asymptotic results would be interesting.
 
 Such questions give rise to a natural generalization of colonel
 Blotto-type zero-sum games: how might one allocate resources among
@@ -509,7 +512,6 @@ attention to equal fighting strengths, one might observe that not only
 is the eventual winner a random variable, but so too is the strength
 of the remaining fleet at victory.  Investigating the probability mass
 function for this might be interesting.
-
 
 \bibliographystyle{plainnat}
 \bibliography{naval}
