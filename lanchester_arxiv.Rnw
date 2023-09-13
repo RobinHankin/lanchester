@@ -94,19 +94,34 @@ Writing in 1974, \citeauthor{karr1974} considered Lanchester-type
 situations, focussing on the continuous case, and presented several
 ODEs.  He went on to consider (p41) a discrete case but more in the
 context of assessing cognate military assumptions, and presented no
-numerical or analytical solutions.  Here I consider the following
-recursive definition for $p(r,b)$, $r,b\in\mathbb{N}\backslash (0,0)$:
+numerical or analytical solutions.  \citet{ancker1987} considered
+equations~\ref{lanchester} and presented extensive numerical and
+theoretical results.  It is interesting to compare this with the
+system semi-discrete system considered by~\citet{fox2010}, who assumed
+that the system was discrete in time but not fighting strength; in his
+work, the fighting strengths of the nations were conceptualised as
+functions $x(n)$ and $y(n)$ from the integers to the non-negative
+reals.  His analogues to equations~\ref{defining} were
 
-$$
+\begin{equation}
+\begin{split}
+x(n+1) &= x(n) -k_xy(n)\\
+y(n+1) &= y(n) -k_yx(n),\qquad n=0,1,2,\ldots.
+\end{split}
+\end{equation}
+
+Here I consider a related, but different system in which the fighting
+units are discrete, being destroyed according to a stochastic process.
+We adopt the following recursive definition for $p(r,b)$,
+$r,b\in\mathbb{N}\backslash (0,0)$:
+
+\begin{equation}\label{defining}
 p(r,b) = \begin{cases}
 1 & a\geqslant 1, b=0\\
 0 & b\geqslant 1, r=0\\
-\frac{r}{r+b}\cdot p(r,b-1) + \frac{b}{r+b}\cdot p(r-1,b)  & r,b\geqslant 1
+\frac{r}{r+b}\cdot p(r,b-1) + \frac{b}{r+b}\cdot p(r-1,b)  & r,b\geqslant 1.
 \end{cases}
-$$
-
-
-\cite{zhang2023,fox2010,lanchester1956,ancker1987}
+\end{equation}
 
 
 The preferred interpretation of the problem is as follows: navies
@@ -184,7 +199,9 @@ extant fighting units.  Angle brackets indicate the probabilities for
 red and blue victory; thus
 $\left\langle\textcolor{red}{\frac{233}{315}},\textcolor{blue}{\frac{82}{315}}\right\rangle$
 means that the probability of (eventual) red victory is
-$\frac{233}{315}$ and that of blue victory $\frac{82}{315}$}
+$\frac{233}{315}$ and that of blue victory $\frac{82}{315}$.  Teal
+numbers indicate transition probabilities
+$\frac{r}{r+b},\frac{b}{r+b}$; large dots show absorbing states}
 \end{center}
 \end{figure}
 
@@ -193,7 +210,7 @@ $\frac{233}{315}$ and that of blue victory $\frac{82}{315}$}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell.tex}")
 @
-\caption{Single\label{single_cell2} cell analysis, colour coding as
+\caption{Recurrence relation \label{single_cell2} cell analysis, colour coding as
 for figure~\ref{small_ab}}
 \end{center}
 \end{figure}
@@ -219,7 +236,7 @@ have no apparent pattern.  However, it might be reasonable to
 conjecture that $p(n,r)\sim\alpha\cdot(\beta/n)^n\cdot n^{-(r+1/2)}$
 for some $\alpha,\beta$.
 
-\section{The restricted game: precautionary surrender}
+\subsection{The restricted game: precautionary surrender}
 
 Given that $p(n,n)=1/2$, one might seek solutions for $p(n,n+1)$ but
 this seems to be not at all easy.  However, we may consider a simpler
@@ -411,9 +428,8 @@ z   &= \frac{n+1}{2n-1}\cdot x_n +\frac{n-2}{2n-1}\cdot 1.
 \end{split}
 \end{equation}
 
-However, equation~\ref{fourbehind} does not appear to have an analytic
-solution (at least, not a useful one).
-
+However, equation~\ref{fourbehind} does not appear to have a useful analytic
+solution.
 
 \begin{figure}
 \begin{center}
@@ -426,11 +442,17 @@ behind,\label{nnp3_cell} $n>1$}
 \end{figure}
 
 
-\section{Further work}
-We might consider the general case of $n>2$ mutually antagonistic
-fleets, and/or the case where the ships of each fleet have different
-effectivenesses $\alpha,\beta$, leading to probabilities $\frac{\alpha
-a}{\alpha a+\beta b}, \frac{\beta b}{\alpha a+\beta b}$.
+\section{Further work} One natural generalization, of interest all the
+way back to Lanchester's seminal 1956 work, is to consider the case
+where the ships of each fleet have different effectivenesses
+$\alpha,\beta$, leading to probabilities $\frac{\alpha r}{\alpha
+r+\beta b}, \frac{\beta b}{\alpha r+\beta b}$.  This case seems not at
+all easy to consider beyond a diagram analogous to
+figure~\ref{small_ab} for a few special cases.  Restricting attention
+to equal fighting strengths, one might observe that not only is the
+eventual winner a random variable, but so too is the strength of the
+remaining fleet at victory.  Investigating the probability mass
+function for this might be interesting.
 
 
 \bibliographystyle{plainnat}
