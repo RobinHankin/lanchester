@@ -211,7 +211,7 @@ function of red and blue strength $1(1)20$}
 
 Figure~\ref{single_cell2} shows the general case for $r=2$.  This has
 recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
-\frac{1}{(n+1)!}\cdot\frac{2}{n+3}$ which has solution
+\frac{1}{(n+2)!}\cdot\frac{2}{n+3}$ which has solution
 
 \begin{equation}\label{xn}
 p(2,2+n) = x_n =
