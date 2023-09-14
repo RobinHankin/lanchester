@@ -90,11 +90,7 @@ the individual units; $c=k$ if the fighting values of the individual
 units of the force are equal.  Lanchester went on to study the
 properties of this system and considered British naval tactics in the
 eighteenth and nineteenth centuries in the light of his equations.
-Writing in 1974, \citeauthor{karr1974} considered Lanchester-type
-situations, focussing on the continuous case, and presented several
-ODEs.  He went on to consider (p41) a discrete case but more in the
-context of assessing cognate military assumptions, and presented no
-numerical or analytical solutions.  \citet{ancker1987} considered
+\citet{ancker1987} considered
 equations~\ref{lanchester} and presented extensive numerical and
 theoretical results.  It is interesting to compare this with the
 system semi-discrete system considered by~\citet{fox2010}, who assumed
@@ -110,10 +106,12 @@ y(n+1) &= y(n) -k_yx(n),\qquad n=0,1,2,\ldots.
 \end{split}
 \end{equation}
 
-Here I consider a related, but different system in which the fighting
-units are discrete, being destroyed according to a stochastic process.
-We adopt the following recursive definition for $p(r,b)$,
-$r,b\in\mathbb{N}\backslash (0,0)$:
+Writing in 1974, \citeauthor{karr1974} considered a number of similar
+Lanchester-type situations, focussing on the continuous case, and
+presented several ODEs.  He went on to consider (p41) the case where
+the fighting units are discrete, being destroyed according to a
+stochastic process.  His model may be expressed as a recursive scheme
+for $p(r,b)$, $r,b\in\mathbb{N}\backslash (0,0)$:
 
 \begin{equation}\label{defining}
 p(r,b) = \begin{cases}
@@ -123,13 +121,13 @@ p(r,b) = \begin{cases}
 \end{cases}
 \end{equation}
 
-
 The preferred interpretation of the problem is as follows: navies
 $R,B$ deploy fleets of $r,b$ ships respectively and engage in battle.
 At any point in time, the probability that the next ship to be sunk is
 one of $R$ is $b/(r+b)$.  The winner is the first to destroy all the
-other fleet's ships; $p(r,b)$ becomes the probability of navy $R$
-winning, that is, achieving state $(b,0)$ for some $b>0$.
+other fleet's ships; if $(r,b)$ is the initial state vector, $p(r,b)$
+becomes the probability of navy $R$ winning, that is, achieving state
+$(b,0)$ for some $b>0$.
 
 From now on, it is assumed that $r,b,n\in\mathbb{N}^+$ unless
 otherwise indicated.  The following results are immediate:
@@ -138,7 +136,7 @@ otherwise indicated.  The following results are immediate:
 \item $0<p(r,b)<1$, $r,b>0$
 \item $p(r,b)+p(b,r)=1$
 \item $p(n,n)=\frac{1}{2}$, $n>0$
-\item $p(n,1)=\frac{(n+1)!-1}{(n+1)!}$, $p(1,n)=\frac{1}{(n+1)!}$, $n>0$
+\item $p(n,1)=\frac{(n+1)!-1}{(n+1)!}$, $p(1,n)=\frac{1}{(n+1)!}$, $n>0$.
 \end{itemize}
 
 \section{Results}
@@ -281,8 +279,8 @@ $\alpha,\beta$ as $n\longrightarrow\infty$.
 Given that $p(n,n)=1/2$, one might seek solutions for $p(n,n+1)$ but
 this seems to be not at all easy.  However, we may consider a simpler
 game in which $p(n,n+2)=0$ and $p(n+2,n)=1$ for all $n\geqslant 0$;
-the game is considered decided if $\left|a-b\right|\geqslant 2$;
-figure~\ref{nnp1} shows some results for small values of $(a,b)$.  One
+the game is considered decided if $\left|r-b\right|\geqslant 2$;
+figure~\ref{nnp1} shows some results for small values of $(r,b)$.  One
 interpretation might be that a navy surrenders if it falls more than
 two units behind its opponent.  The situation is not quite isomorphic
 to that of tennis at deuce because the restricted game has a
