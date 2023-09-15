@@ -422,11 +422,9 @@ f(2:4) - c(5/6, 31/40, 26/35)
 
 
 Above we see agreement between equation~\ref{simplifiedversion} and
-figure~\ref{small_ab}.
-
-Even in its streamlined form, the hypergeometric term remains
-troublesome.  Figure~\ref{hypergeoasymp} presents numerical evidence
-to suggest that
+figure~\ref{small_ab}.  Even in its streamlined form, the
+hypergeometric term remains troublesome.  Figure~\ref{hypergeoasymp}
+presents numerical evidence to suggest that
 
 \begin{equation}\label{noproof}
 \ft(1,-n;3/2-n;1/4)=\frac{4}{3} +
@@ -435,7 +433,7 @@ to suggest that
 
 However, an algebraic proof that
 $\displaystyle\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)$ even
-exists is not available.  Equation~\ref{noproof} would imply that
+exists is not available; but equation~\ref{noproof} would imply that
 $p(n,n-1)=\frac{2}{3} + \frac{2}{9}n^{-1} +\frac{7}{27}n^{-2}
 +\mathcal{O}{\left(n^{-3}\right)}$.  The case for precautionary
 surrender on being four or more units behind is shown in
