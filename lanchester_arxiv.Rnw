@@ -76,12 +76,12 @@ pdfkeywords={Naval warfare, stochastic model}
 Motivated by the analysis of modern and ancient military strategy,
 \citet{lanchester1956} set out a simple model for two mutually hostile
 forces, which he styled ``red'' and ``blue'', of strength $r=r(t)$ and
-$r=r(t)$ respectively:
+$b=b(t)$ respectively:
 
 \begin{equation}\label{lanchester}
 \begin{split}
 \frac{dr}{dt}  &= -bk\\
-\frac{dr}{dt}  &= -rc.
+\frac{db}{dt}  &= -rc.
 \end{split}
 \end{equation}
 
@@ -97,7 +97,7 @@ system semi-discrete system considered by~\citet{fox2010}, who assumed
 that the system was discrete in time but not fighting strength; in his
 work, the fighting strengths of the nations were conceptualised as
 functions $x(n)$ and $y(n)$ from the integers to the non-negative
-reals.  His analogues to equations~\ref{defining} were
+reals.  His analogues to equations~\ref{lanchester} were
 
 \begin{equation}
 \begin{split}
@@ -115,7 +115,7 @@ for $p(r,b)$, $r,b\in\mathbb{N}\backslash (0,0)$:
 
 \begin{equation}\label{defining}
 p(r,b) = \begin{cases}
-1 & a\geqslant 1, b=0\\
+1 & r\geqslant 1, b=0\\
 0 & b\geqslant 1, r=0\\
 \frac{r}{r+b}\cdot p(r,b-1) + \frac{b}{r+b}\cdot p(r-1,b)  & r,b\geqslant 1.
 \end{cases}
