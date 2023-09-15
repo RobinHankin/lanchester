@@ -190,7 +190,7 @@ for(i in 2:n){
 dimnames(A) <- list(red=seq_len(nrow(A)),blue=seq_len(ncol(A)))
 print(round(A,3)[1:9,1:9])
 @
-\caption{probs\label{probrounda}}
+\caption{Probabilities of red \label{probrounda} victory from initial states $r,b=1(1)9$}
 \end{center}
 \end{figure}
 
@@ -214,18 +214,19 @@ recurrence relation $x_{n+1}=x_n\frac{n+1}{n+3} +
 \frac{1}{(n+2)!}\cdot\frac{2}{n+3}$ which has solution
 
 \begin{equation}\label{xn}
-p(2,2+n) = x_n =
-\frac{2^{n+2}-(n+2)}{(n+2)!}
+p(2,n) = x_n =
+\frac{2^{n+2}-(n+2)}{(n+2)!},\qquad n\geqslant 0
 \end{equation}
 
 leading to
 \begin{equation}\label{xnp2}
-p(2,b) = 
-\frac{2^{b}-b}{b!}\sim
-\frac{1}{\sqrt{2\pi b}}\cdot\left(\frac{2e}{b}\right)^b,\qquad b\geqslant 2
+p(2,t) = 
+\frac{2^{t}-t}{t!}\sim
+\frac{1}{\sqrt{2\pi t}}\cdot\left(\frac{2e}{t}\right)^t,\qquad t\geqslant 2
 \end{equation}
 
-(proof by direct substitution).  The asymptotic form is via Stirling's
+where $t$ is the total number of ships; proof by direct substitution.
+The asymptotic form is via Stirling's
 approximation~\citep[p257]{abramowitz1965}.  We may verify
 equation~\ref{xn} by cross-checking it against figure~\ref{small_ab},
 using the R computer language~\citep{rcore2023}:
@@ -238,10 +239,9 @@ f(1:4) - c(5/6,1/2,9/40,29/360)
 Above we see agreement between equation~\ref{xn} and
 Figure~\ref{small_ab}.  Proceeding to consider $r=3$
 (Figure~\ref{single_cell3}), we obtain the relation
-$x_{n+1}=\frac{n+1}{n+2}\frac{2^{n+3}-n-3}{(n+3)!} + 3x_n/(n+4)$
-which, together with $x_1=\frac{23}{24}$, gives
-
-
+$x_{n+1}=x_n\cdot\frac{3}{n+4} +
+\frac{2^{n+3}-n-3}{(n+3)!}\cdot\frac{n+1}{n+4}$ which, together with
+$x_0=1$, gives
 
 \begin{figure}
 \begin{center}
@@ -269,10 +269,10 @@ p(3,n)=x_n=\frac{54\cdot
 \sim\frac{27}{\sqrt{2\pi n^7}}\left(\frac{3e}{n}\right)^n.
 \end{equation}
 
-Subsequent results seem not at all easy to obtain, and have no
-apparent pattern.  However, it might be reasonable to conjecture that
-$p(n,b)\sim\alpha\cdot(\beta/n)^n\cdot n^{-(b+1/2)}$ for some
-$\alpha,\beta$ as $n\longrightarrow\infty$.
+The general pattern does not seem at all easy to obtain.  However, it
+might be reasonable to conjecture that
+$p(n,b)\sim\alpha\cdot(be/n)^n\cdot n^{-(b+1/2)}$ for some $\alpha$ as
+$n\longrightarrow\infty$, with $b$ fixed.
 
 \subsection{The restricted game: precautionary surrender}
 
@@ -453,7 +453,6 @@ $10^{-6}$}
 \end{center}
 \end{figure}
 
-
 The case for precautionary surrender on being four or more units
 behind is shown in figure~\ref{nnp3_cell}.  The recurrence would be
 
@@ -480,15 +479,23 @@ behind,\label{nnp3_cell} $n>1$}
 \end{figure}
 
 
-\section{Further work}
+\section{Conclusions and further work}
+
+Discrete Lanchester systems appear to be an interesting problem but
+exact solutions are elusive.  Here winning probabilities for the full
+problem were presented for initial state vectors with small entries;
+the general case for $(2,n)$ and $(3,n)$ was given.  Asymptotic
+results for a restricted problem (precautionary surrender) were given
+where numerical superiority of two or three units resulted in
+pre-emptive surrender of the behind side.
 
 Military interpretations of discrete Lanchester models would suggest
 that, for given $n$ and $\alpha$, finding the minimum value of $a$
-such that $p(n,n+a)\geqslant\alpha$.  One would then be seeking the
-minimal number of additional fighting units to secure victory with a
-given probability.  In general, one might hope to discover discrete
-analogues of Lanchester's N-square
-law~\cite{lanchester1956,lepingwell1987}.
+such that $p(n,n+a)\geqslant\alpha$ would have direct significance.
+One would then be seeking the numerical superiority required to secure
+victory with a given probability.  In general, one might hope to
+discover discrete analogues of Lanchester's N-square
+law~\citep{lanchester1956,lepingwell1987}.
 Figure~\ref{logoddsratioredvsblue} goes some way to answering this,
 but asymptotic results would be interesting.
 
@@ -503,13 +510,13 @@ One natural generalization, of interest all the way back to
 Lanchester's seminal 1956 work, is to consider the case where the
 ships of each fleet have different effectivenesses $\alpha,\beta$,
 leading to probabilities $\frac{\alpha r}{\alpha r+\beta b},
-\frac{\beta b}{\alpha r+\beta b}$.  This case seems not at all easy to
-consider beyond producing diagrams analogous to figures~\ref{small_ab}
-and~\ref{logoddsratioredvsblue} for a few special cases.  Restricting
-attention to equal fighting strengths, one might observe that not only
-is the eventual winner a random variable, but so too is the strength
-of the remaining fleet at victory.  Investigating the probability mass
-function for this might be interesting.
+\frac{\beta b}{\alpha r+\beta b}$.  Results for this general case seem
+to be not at all easy to obtain, beyond producing diagrams analogous
+to figures~\ref{small_ab} and~\ref{logoddsratioredvsblue}.
+Restricting attention to equal fighting strengths, one might observe
+that not only is the eventual winner a random variable, but so too is
+the strength of the remaining fleet at victory.  Investigating the
+probability mass function for this might be interesting.
 
 \bibliographystyle{plainnat}
 \bibliography{naval}
