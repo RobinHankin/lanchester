@@ -422,19 +422,25 @@ f(2:4) - c(5/6, 31/40, 26/35)
 
 
 Above we see agreement between equation~\ref{simplifiedversion} and
-figure~\ref{small_ab}.  I have a certain amount of numerical evidence
-to suggest that 
+figure~\ref{small_ab}.
+
+Even in its streamlined form, the hypergeometric term remains
+troublesome.  Figure~\ref{hypergeoasymp} presents numerical evidence
+to suggest that
 
 \begin{equation}\label{noproof}
 \ft(1,-n;3/2-n;1/4)=\frac{4}{3} +
-\frac{2}{3}n^{-1} + \frac{4}{3}n^{-2} + \mathcal{O}(n^{-3})
+\frac{2}{3}n^{-1} + \frac{4}{3}n^{-2} + \mathcal{O}(n^{-3}).
 \end{equation}
 
-(see figure~\ref{hypergeoasymp}).  However, an algebraic proof that
+However, an algebraic proof that
 $\displaystyle\lim_{n\longrightarrow\infty}\ft(1,-n;3/2-n;1/4)$ even
 exists is not available.  Equation~\ref{noproof} would imply that
 $p(n,n-1)=\frac{2}{3} + \frac{2}{9}n^{-1} +\frac{7}{27}n^{-2}
-+\mathcal{O}{\left(n^{-3}\right)}$.
++\mathcal{O}{\left(n^{-3}\right)}$.  The case for precautionary
+surrender on being four or more units behind is shown in
+figure~\ref{nnp3_cell}.  The recurrence would be
+
  
 \begin{figure}[htbp]
   \begin{center}
@@ -452,9 +458,6 @@ exact and approximate results for $n=500$ differ by about
 $10^{-6}$}
 \end{center}
 \end{figure}
-
-The case for precautionary surrender on being four or more units
-behind is shown in figure~\ref{nnp3_cell}.  The recurrence would be
 
 \begin{equation}
 \begin{split}
@@ -499,7 +502,7 @@ law~\citep{lanchester1956,lepingwell1987}.
 Figure~\ref{logoddsratioredvsblue} goes some way to answering this,
 but asymptotic results would be interesting.
 
-Such questions give rise to a natural generalization of colonel
+Such questions give rise to a natural generalization of Colonel
 Blotto-type zero-sum games: how might one allocate resources among
 battlefields to maximize the expected number of victories?  Further,
 one might regard one's combat units as vulnerable targets rather than
@@ -518,6 +521,7 @@ that not only is the eventual winner a random variable, but so too is
 the strength of the remaining fleet at victory.  Investigating the
 probability mass function for this might be interesting.
 
+\clearpage
 \bibliographystyle{plainnat}
 \bibliography{naval}
 
