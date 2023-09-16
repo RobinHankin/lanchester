@@ -154,7 +154,7 @@ range of initial states.
 \tikz \draw[-{Latex[length=4mm]}] (-1pt,0) -- (1pt,0);
 }
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = small_ab, echo = FALSE, results = tex>>=
 library(tikzDevice)
@@ -175,7 +175,7 @@ $\frac{r}{r+b},\frac{b}{r+b}$; large dots show absorbing states}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<label=calculateA,cache=TRUE,echo=FALSE>>=
 n <- 50
@@ -194,7 +194,7 @@ print(round(A,3)[1:9,1:9])
 \end{center}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<label=plotlogodds,fig=TRUE,echo=FALSE>>=
 O <- log(A)-log(1-A)
@@ -243,7 +243,7 @@ $x_{n+1}=x_n\cdot\frac{3}{n+4} +
 \frac{2^{n+3}-n-3}{(n+3)!}\cdot\frac{n+1}{n+4}$ which, together with
 $x_0=1$, gives
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell.tex}")
@@ -254,7 +254,7 @@ for figure~\ref{small_ab}}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = singlecell, echo = FALSE, results = tex>>=
 cat("\\input{single_cell3.tex}")
@@ -305,7 +305,7 @@ two or more units behind means surrender}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp1_rec.tex}")
@@ -327,7 +327,7 @@ x_{n+1}= x_n\cdot\frac{n^2-1}{4n^2+2n} + \frac{2n^2+2n+1}{4n^2+2n}.
 
 
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp2.tex}")
@@ -338,7 +338,7 @@ behind means surrender}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp2_cell.tex}")
@@ -347,8 +347,6 @@ cat("\\input{nnp2_cell.tex}")
 behind,\label{nnp2_cell} $n>1$}
 \end{center}
 \end{figure}
-
-
 
 Although involved and complicated, this equation is solved easily by
 computer algebra systems.  Sage gives us
@@ -440,7 +438,7 @@ surrender on being four or more units behind is shown in
 figure~\ref{nnp3_cell}.  The recurrence would be
 
  
-\begin{figure}[htbp]
+\begin{figure}[p]
   \begin{center}
 <<label=asymptot,fig=TRUE,echo=TRUE>>=
 library("hypergeo")
@@ -469,7 +467,7 @@ z   &= \frac{n+1}{2n-1}\cdot x_n +\frac{n-2}{2n-1}\cdot 1.
 However, equation~\ref{fourbehind} does not appear to have a useful analytic
 solution.
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 <<name = nnp1, echo = FALSE, results = tex>>=
 cat("\\input{nnp3_cell.tex}")
@@ -500,12 +498,13 @@ law~\citep{lanchester1956,lepingwell1987}.
 Figure~\ref{logoddsratioredvsblue} goes some way to answering this,
 but asymptotic results would be interesting.
 
-Such questions give rise to a natural generalization of Colonel
-Blotto-type zero-sum games: how might one allocate resources among
-battlefields to maximize the expected number of victories?  Further,
-one might regard one's combat units as vulnerable targets rather than
-offensive assets; and consider their placement from the perspective of
-liability allocation games~\citep{hankin2020}.
+Such questions give rise to a natural generalization of discrete
+Colonel Blotto-type zero-sum games~\citep{hart2008}: how might one
+allocate resources among battlefields to maximize the expected number
+of victories?  Further, one might regard one's combat units as
+vulnerable targets rather than offensive assets; and consider their
+placement from the perspective of liability allocation
+games~\citep{hankin2020}.
 
 One natural generalization, of interest all the way back to
 Lanchester's seminal 1956 work, is to consider the case where the
