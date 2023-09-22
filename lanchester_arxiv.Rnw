@@ -59,12 +59,14 @@ pdfkeywords={Naval warfare, stochastic model}
 
 \begin{abstract}
 
-  In this short article I investigate a discrete Lanchester-type
-  attrition model, described by a bivariate recurrence relation.  It
-  has direct application to military conflict; the preferred
-  interpretation is two fleets of battleships, each trying to sink the
-  other.  I present some theoretical and numerical results and suggest
-  lines for further work.
+  Discrete Lanchester-type attrition models describe many types of
+  antagonistic situations; the preferred interpretation is two fleets
+  of battleships, each trying to sink the other.  Such models may be
+  characterised by a bivariate recurrence relation.  Here I consider a
+  restricted case in which a fleet that finds itself two or three
+  units behind its opponent immediately surrenders.  I present some
+  theoretical and numerical results and suggest lines for further
+  work.
 
 \end{abstract}
 
@@ -121,11 +123,13 @@ p(r,b) = \begin{cases}
 \end{cases}
 \end{equation}
 
-The preferred interpretation of the problem is as follows: navies
-$R,B$ deploy fleets of $r,b$ ships respectively and engage in battle.
-At any point in time, the probability that the next ship to be sunk is
-one of $R$ is $b/(r+b)$.  The winner is the first to destroy all the
-other fleet's ships; if $(r,b)$ is the initial state vector, $p(r,b)$
+This describes the OK Corral
+shootout~\citep{williams1998,kingman2003}, although here the preferred
+interpretation of the problem is as follows: navies $R,B$ deploy
+fleets of $r,b$ ships respectively and engage in battle.  At any point
+in time, the probability that the next ship to be sunk is one of $R$
+is $b/(r+b)$.  The winner is the first to destroy all the other
+fleet's ships; if $(r,b)$ is the initial state vector, $p(r,b)$
 becomes the probability of navy $R$ winning, that is, achieving state
 $(b,0)$ for some $b>0$.
 
