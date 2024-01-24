@@ -22,7 +22,7 @@
 
 
 
-\title{Discrete Lanchester attrition models}
+\title{Discrete Lanchester attrition models: the case of precautionary surrender}
 
 %\date{September 9, 1985}	% Here you can change the date presented in the paper title
 %\date{} 					% Or removing it
